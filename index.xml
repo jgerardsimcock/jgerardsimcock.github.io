@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Razor&#39;s Edge</title>
+    <link>https://jgerardsimcock.github.io/</link>
+    <description>Recent content on Razor&#39;s Edge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Fri, 07 Dec 2018 12:22:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://jgerardsimcock.github.io/posts/test/</link>
+      <pubDate>Fri, 07 Dec 2018 12:22:27 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/test/</guid>
+      <description>Test test</description>
+    </item>
+    
+    <item>
+      <title>Start Again</title>
+      <link>https://jgerardsimcock.github.io/posts/start_again/</link>
+      <pubDate>Fri, 07 Dec 2018 10:00:55 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/start_again/</guid>
+      <description>In the twilight of my temporal youth, I decideded to start over. In some ways, I feel that my life has just started.
+When your mind is consumed with something, not doing/living that thing is a kind of painful dishonesty. My relationship with pain is perhaps different than most folks. I don&amp;rsquo;t like pain that leads to regrets. I welcome pain that leads to freedom, awareness and peace.
+So enough bullshit.</description>
+    </item>
+    
+    <item>
+      <title>What is this?</title>
+      <link>https://jgerardsimcock.github.io/about/about/</link>
+      <pubDate>Fri, 07 Dec 2018 10:00:45 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/about/about/</guid>
+      <description>You&amp;rsquo;ve landed on my site.
+This is an experiment. This is where I am posting updates and ideas that come to me.
+Where are we? How did we get here?
+I am a world citizen, currently based in Bali, Indonesia. I&amp;rsquo;ve spent most of my post-university years in Hawai&amp;rsquo;i and California with meaningful episodes in Beijing, NYC, Shanghai, and Bogota.
+In my past, I have done many things to make a living.</description>
+    </item>
+    
+  </channel>
+</rss>
