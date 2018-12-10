@@ -13,8 +13,14 @@
   </url>
   
   <url>
+    <loc>https://jgerardsimcock.github.io/about/about/</loc>
+    <lastmod>2018-12-07T10:00:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jgerardsimcock.github.io/about/</loc>
     <lastmod>2018-12-07T10:00:45+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
