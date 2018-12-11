@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Razor&#39;s Edge</title>
+    <title>As it is</title>
     <link>https://jgerardsimcock.github.io/</link>
-    <description>Recent content on Razor&#39;s Edge</description>
+    <description>Recent content on As it is</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
@@ -34,10 +34,10 @@ So enough bullshit.</description>
     
     <item>
       <title>What is this?</title>
-      <link>https://jgerardsimcock.github.io/about/about/</link>
+      <link>https://jgerardsimcock.github.io/posts/about/</link>
       <pubDate>Fri, 07 Dec 2018 10:00:45 +0800</pubDate>
       
-      <guid>https://jgerardsimcock.github.io/about/about/</guid>
+      <guid>https://jgerardsimcock.github.io/posts/about/</guid>
       <description>You&amp;rsquo;ve landed on my site.
 This is an experiment. This is where I am posting updates and ideas that come to me.
 Where are we? How did we get here?
