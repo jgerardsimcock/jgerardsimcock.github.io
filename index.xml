@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Mon, 07 Jan 2019 21:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jan 2019 19:27:24 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Factor Analysis</title>
+      <link>https://jgerardsimcock.github.io/posts/factor_analysis/</link>
+      <pubDate>Tue, 08 Jan 2019 19:27:24 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/factor_analysis/</guid>
+      <description>I&amp;rsquo;ve just completed Term 1 of Udacity&amp;rsquo;s AI for Trading Nanodegree program. This is not a review of the course content. This is a review for my own benefit of the some concepts that I need to work with and better understand. My verbal characterization of my understanding of these concepts will be crude, imprecise and potentially wrong. This is a work in progress.
+Factor Models The origin of Factor Model is the French/Fama three-factor model.</description>
+    </item>
     
     <item>
       <title>Charts 2019-01-07</title>
