@@ -116,33 +116,105 @@ debt to equity and earnings variability</li>
 
 <p>We can reallocate our weights to separate assets based on potential risk/return profiles for a given factor/asset pair. And we can update this as we move through time so if we estimate that the risk of a given factor has increased and one of our main positions has a high exposure for that factor, we can reduce or exit our position. Similarly if the returns of a given factor are going up we should increase our position for a given asset.</p>
 
-<h2 id="alpha-factors">Alpha Factors</h2>
+<h2 id="risk-neutralization">Risk Neutralization</h2>
+
+<h5 id="market-risk">Market Risk</h5>
+
+<p>By definition, our market risk is zero since the sum of our alpha vector is zero for any given time period. We can accomplish this by subtracting the mean of the alpha vector from each alpha in the alpha vector. The assumption is that each stocks exposure to the market is 1.0 or completely exposed and positively correlated.</p>
+
+<h5 id="sector-risk">Sector Risk</h5>
+
+<p>We also want to be sector neutral so we perform a similar neutralization as the market neutralization. We subtract sector mean from each of the alpha weights in the sector. This will give us a zero net exposure to a given sector. The assumption is that each stocks exposure to the sector is 1.0 or completely exposed and positively correlated.</p>
+
+<p>A portfolio will first be neutralized by market then by each sector to which it is exposed.</p>
+
+<h1 id="alpha-factors">Alpha Factors</h1>
 
 <p>Alpha Factors are things that contribute to alpha. Many are a function of price and volume. Some can come from alternative data. Some can come from fundamanetal data produced by the company. In this way, it is a bit of a blend of the traditional technical vs fundamental. Its power is amplified with the use of machine learning and large-scale computing to identify signal in large data sets.</p>
 
 <p>In our final project we worked with a number of alpha factors like 5 day price mean reversion, 1 year momentum, overnight sentiment.</p>
 
-<h2 id="researching-alpha-factors">Researching Alpha Factors</h2>
+<p>Alpha Factors also refer to the time series of alpha vectors of multiple time periods.</p>
+
+<p>Raw Alpha Factors are unprocessed and unoptimized time series of signals.</p>
+
+<p>We process our Alpha Factors with the following techniques:</p>
+
+<ul>
+<li>Market neutralization</li>
+<li>Sector neutralization</li>
+<li>Ranking</li>
+<li>z-scoring</li>
+<li>Smoothing</li>
+</ul>
+
+<p>If your alpha vectors are generated from different stock universes, ranking then z-scoring will preserve robustness to outliers and noise.</p>
+
+<h1 id="alpha-vectors">Alpha Vectors</h1>
+
+<p>vector/array of positive and negative numbers that indicate the the long/short signal for a given asset for a given period of time. If positive long, if negative short. Each number in the vector is proportional to the amount of capital to be allocated to each asset for each time period. This vector is standardized with mean of 0 and the sum of its absolute values is equal to one. This is because 100% of our allocation is represented in the vector.</p>
+
+<h1 id="researching-alpha-factors">Researching Alpha Factors</h1>
 
 <p>Examples of research papers and the process of turning papers into alpha factors</p>
 
 <p>How Risk models and Alpha models interact</p>
 
-<h2 id="evaluating-alpha-factors-by-quantile">Evaluating Alpha factors by quantile</h2>
+<h1 id="evaluating-alpha-factors">Evaluating Alpha Factors</h1>
 
-<p>We took the quantiles of our daily factor returns to see how we would possibly implement a strategy using the factor. Low negative daily returns would be opportunities to short and high positive daily returns would be opportunities to go long. Evidently, we want our daily returns to be monotonic in there quantiles. For our project, many of the alpha&rsquo;s generated signal on the short side. This is sub-optimal since you need to find the stock to short and it can be expensive to short. Finally, the daily average return for many of the alphas was around 3 basis points. That&rsquo;s pretty small. Annualized that is roughly 7.5%. If you include transaction costs that can further reduce your return. The point is, that many of these strategies only make sense under leverage and because of this are only suitable for institutional investors.</p>
+<h4 id="factor-returns">Factor Returns</h4>
 
-<h2 id="turnover-analysis-factor-rank-autocorrelation">Turnover Analysis: Factor Rank Autocorrelation</h2>
+<p>We construct a theoretical portfolio with the alpha vector for a given time period and compute the returns
+for each successive time step. Standardize the alpha vector and compute single day returns from the weight of each alpha in the alpha vector times the retrun for the asset.</p>
 
-<p>To understand the stability of the alpha factors, we can do a test to see how frequently our alphas shift in their respective rank vis-a-vis other factors. This will also help us understand potential trading costs for system built upon a set of alphas.</p>
+<h4 id="quantiles">Quantiles</h4>
 
-<h2 id="sharpe-ratio-of-alphas">Sharpe Ratio of Alphas</h2>
+<p>We took the quantiles of our daily factor returns to see how we would possibly implement a strategy using the factor. Low negative daily returns would be opportunities to short and high positive daily returns would be opportunities to go long. We want our daily returns to be monotonic in there quantiles. The highest alpha values should have the highest returns and the lowest alpha values should have the lowest returns. And the relationship should increase monotonically. For our project, many of the alpha&rsquo;s generated signal on the short side. This is sub-optimal since you need to find the stock to short and it can be expensive to short. Finally, the daily average return for many of the alphas was around 3 basis points. That&rsquo;s pretty small. Annualized that is roughly 7.5%. If you include transaction costs that can further reduce your return. The point is, that many of these strategies only make sense under leverage and because of this are only suitable for institutional investors.</p>
+
+<h4 id="turnover-analysis-factor-rank-autocorrelation">Turnover Analysis: Factor Rank Autocorrelation</h4>
+
+<p>To understand the stability of the alpha factors, we can do a test to see how frequently our alphas shift in their respective rank vis-a-vis other assets in our alpha vector. This will also help us understand potential trading costs for system built upon a set of alphas.</p>
+
+<h4 id="sharpe-ratio-of-alphas">Sharpe Ratio of Alphas</h4>
 
 <p>Sharpe ratio is a measurement of how much volatility you should expect for a given expected return. Many investors are uncomfortable with high volatility. Values of 1 and higher are good targets for a sharpe ratio. We smoothed our factors to remove some of the volatility. These volatility reducing transformations did not seem to affect Sharpe Ratio that much.</p>
+
+<h4 id="rank-information-coefficient">Rank Information Coefficient</h4>
+
+<p>Do our ranks in our alpha vector correspond to future returns? If so then we have high information coefficient. If not then we have a low information coefficient. We repeat this over a multiple time periods, this will give us a time series of Rank IC correlations.</p>
+
+<p>Correlation of ranked values is called Spearman correlation value.</p>
+
+<h4 id="transfer-coefficient">Transfer Coefficient</h4>
+
+<p>How does your factor perform before and after risk neutralization and optimization. Does it preserve its long/short state or does it flip? The Transfer coefficient will also indicate independence from risk factors. That is if the risk neutralization has not affected the factor rank then it is unaffected by the risk neutralization.</p>
+
+<h4 id="alpha-performance-code">Alpha Performance Code</h4>
+
+<p>Since much of this relies heavily on <a href="https://www.quantopian.com/">Quantopian&rsquo;s</a> open source code here is the link to their <a href="https://github.com/quantopian/alphalens/blob/master/alphalens/performance.py">alphalens performance code</a></p>
 
 <h2 id="combining-alpha-factors">Combining Alpha Factors</h2>
 
 <p>We have a bunch of alpha vectors corresponding to different alphas and each of these vectors has a unique coefficient associated with each asset. So how to use them? You combine them somehow to get a composite alpha vector and this will tell you what to do on a give day for a given asset. In our project, we just took the average among the alphas and created our combined alpha vector.</p>
+
+<h4 id="conditional-factors">Conditional Factors</h4>
+
+<ul>
+<li>Quantiles of quantiles</li>
+<li>Multiply factors together</li>
+<li>Momentum and Volume</li>
+<li>Machine learning&hellip;</li>
+</ul>
+
+<h1 id="constraints">Constraints</h1>
+
+<h4 id="liquidity">Liquidity</h4>
+
+<p>Some assets do not trade as frequently or with as much volume as others. This increases the bid-ask spread. Iliquid assets with high bid-ask spread may be difficult to short. There are a few reasons. There may not be enough shares available to short. And the bid-ask spread may be so large as to eliminate the benefit of the short. Alternatively, assets with low bid-ask spreads will be easier to short.</p>
+
+<h4 id="market-impact">Market Impact</h4>
+
+<p>The act of buying and selling assets affects the supply and demand of a given asset. This will affect the price. So simply by executing your strategy you may be moving price to a place where you do not want to trade.</p>
 
 <h2 id="portfolio-optimization">Portfolio Optimization</h2>
 
@@ -150,19 +222,27 @@ debt to equity and earnings variability</li>
 
 <p>It is certain that we will face constraints on portfolio construction. At the least, if we are market neutral, we need to make sure the sum our weights is zero. There will also be risk constraints and factor exposure constraints for each asset.</p>
 
+<h4 id="objective-and-constraint-functions">Objective and Constraint functions</h4>
+
+<p>Our overall objective is to maximize alpha while minimizing risk. Our alpha model focuses on maximizing alpha and our risk focuses on minimizing risk. I know sounds easy. We want a quantity in the objective function that represents the portfolio return. This is our alpha vector multiplied by our weights. We want a quantity in our constraints that limits risk below some threshold. We can take the portfolio variance that we compute in our PCA risk model. We want to set this below a risk tolerance. The risk tolerance is set to the amount of drawdown/variance that an asset manager is willing to take on any given time period.</p>
+
 <p>We use a library called cvxpy to optimize our portfolio. This libray allows you to define and minimize/maximize and objective function. It also takes a set of constraints under which to optimize. The outcome of this is that it allows us to know which stocks to put positions in. It defines a vector of weights for the portfolio for each stock.</p>
 
-<p>We perform additional regularization constraints to increase the diversification of the portfolio. We update our objective function by adding a regularization term. The affect of this is to increase the weights for some factors and decrease the weights for other factors resulting in a more diversified set of holdings.</p>
+<h4 id="constraining-risks">Constraining risks</h4>
+
+<p>We perform regularization constraints to increase the diversification of the portfolio. We use the L2 norm to minimize the weights on any given asset. The L2 norm is the length of our vector. If any vector is large, it will magnify the total length of the vector. L2 regularization penalizes concentrationn and enforces diversification. We update our objective function by adding a regularization term. The affect of this is to increase the weights for some factors and decrease the weights for other factors resulting in a more diversified set of holdings.</p>
+
+<p>If you imagine two states of belief, one a strong belief in the sign and magnitude of change and another simply in the sign of change than L2 regularization allows shift how much we believe one state vs the other. We do this by selecting a smaller or larger lambda.</p>
 
 <p>We perform a final bootstrap like optimization by trying to minimize the distance between our portfolio weights and the weights of an ideal index. Since we are not given a set of ideal index weights we perform a bootstrap by creating a weighting scheme that is proportional to the future returns for each asset.</p>
 
+<p>Additional constraints such as market neutrality, turnover constraints, leverage constraints as well as factor exposures may also apply. The factor exposure constraint is interesting. It&rsquo;s like we don&rsquo;t want to put to much behind any one of the sources of our beliefs.</p>
+
+<h4 id="additional-considerations">Additional Considerations</h4>
+
+<p>Final consideration is to see how much the optimization has changed our alpha vector. If it changes the ranks meaningfully then we should consider that our alpha will need to be more thoroughly researched. The reason we do the risk neutralization before the optimization is that it allows us to minimize the sources of error. If we had waited to minimize risk during the optimization and our optimized alpha vector was very different from the original than we really would not be able to attribute the source of the error.</p>
+
 <p>This part of the process seems to be where the art of the process comes in. It depends on your mandate and it depends on your abilities regarding on what next step you&rsquo;ll take. You could do an infinite number of optimizations to meet the specific requirements of your mandate.</p>
-
-<h2 id="lingering-questions">Lingering questions</h2>
-
-<p>Its still not totally obvious to me how we are using the factor betas determined in the PCA risk model and the alpha factors. I see that we use the covariance matrix of factor returns from the risk model as an input into our constraints as well as using our factor betas to detemine our max and min for a given factor allocation.</p>
-
-<p>But I am still not totally clear on how the factor betas and the portfolio weights are interacting.</p>
 
 <h1 id="disclosure">DISCLOSURE</h1>
 

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Wed, 09 Jan 2019 18:25:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jan 2019 21:16:23 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Charts 2019-01-11</title>
+      <link>https://jgerardsimcock.github.io/posts/charts_2019_01_11/</link>
+      <pubDate>Fri, 11 Jan 2019 21:16:23 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/charts_2019_01_11/</guid>
+      <description>After having completed the work for term 1 of the Udacity Nanodegree I felt I need some more solidifiation of the ideas. I did some searching for possible trading strategies to see how they used PCA. There are many actually. I did find one that uses PCA, technical indicators and machine learning on forex. This is like the golden sweet spot for me. Here is that notebook. There is still alot of work that needs to happen on this before I am comfortable with these ideas.</description>
+    </item>
     
     <item>
       <title>Charts 2019-01-09</title>
