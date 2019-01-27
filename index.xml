@@ -18,7 +18,8 @@
       <pubDate>Sun, 27 Jan 2019 14:53:48 +0800</pubDate>
       
       <guid>https://jgerardsimcock.github.io/posts/charts_2019_01_27/</guid>
-      <description> EUR/USD USD/JPY Copper Futures USD/Gold USD/Silver Oil </description>
+      <description>I recently implemented one of Jack Schwager&amp;rsquo;s strategies for trading. It is called wide-ranging day and takes advantage of volatility in a given instrument. It took me a while to really understand what was happening and then to implement it. I&amp;rsquo;ve posted my notebook here
+I feel more and more inclined to only pay attention to a few instruments. I&amp;rsquo;d like to really understand them and see how these instruments behave.</description>
     </item>
     
     <item>
