@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sun, 27 Jan 2019 15:49:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jan 2019 10:37:17 +0300</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Charts 2019-02-01</title>
+      <link>https://jgerardsimcock.github.io/posts/charts_2019_02_01/</link>
+      <pubDate>Thu, 31 Jan 2019 10:37:17 +0300</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/charts_2019_02_01/</guid>
+      <description> I have been using TradingView to paper trade. For instruments for which TradingView does not possess a real-time e you cannot paper trade. I have used some etfs as a way to expose myself to trading the futures contracts.
+USD/Gold USD/Silver Palladium Platinum Dollar/Copper CEPR USD/JPY EUR/USD </description>
+    </item>
     
     <item>
       <title>Shiva, Rumi, Cain, Abel</title>
