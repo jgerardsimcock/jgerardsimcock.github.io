@@ -71,7 +71,229 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
   <h2 class="subtitle is-6">January 1, 0001</h2>
   <h1 class="subtitle is-size-4-mobile is-size-3-desktop"></h1>
   <div class="content">
-    <p>day 5 notes</p>
+    
+
+<h2 id="day4-notes">day4 notes</h2>
+
+<p>EVT</p>
+
+<p>Risk management from Raphael</p>
+
+<p>How does risk affect your business</p>
+
+<p>Bitcoin</p>
+
+<p>AML</p>
+
+<p>Ergodicity and Fat Tails
+Nonlinearity and Scaling: Avoid naive averaging</p>
+
+<p>Extreme Value Theory: mathematical machinery that allow you to prove the estimator you want to compute the parameters to prove a fat-tail
+Statistics is data plus assumptions
+All statistical assumptions are based on underlying assumptions
+You cannot blindly apply statistics. You must understand the assumptions behind your techniques.</p>
+
+<p>EVT, theory allow you to uncover the behaviour of the tails of your data without requiring the distribution, given you are able to guess where the tail starts. IFF you can guess where the tail of the distributiong starts.</p>
+
+<ol>
+<li>The tail of almost every distribution behaves according to 3 different regimes</li>
+<li>REgimes are governed by a single parameter, extreme value index gamma = 1/alpha</li>
+<li>Gamma can be estimated using statistical techniques.</li>
+</ol>
+
+<p>Heavy tail regime: gamma is greater than zero/alpha is greater than zero (Frechet Domain)
+examples are Pareto, Student distrinbtions, stable alpha distributions
+The decay of these regimes is slower.</p>
+
+<p>Light tail regime: gamma = 0, alpha is infinite, Gumbel domain
+Exponential decay in the tail
+Normal Distribution, exponential Distribution, Poisson.</p>
+
+<p>Finite tail domain: negative gamma, alpha less than zero, Weibull domain
+Any finite distribution</p>
+
+<p>EVVT framework
+Just two ingredients areneeded
+1. An idea where the tail starts: k
+2. A good estimator for the tail index: gamma hat.</p>
+
+<p>The Hill estimator: (<a href="https://www.blackarbs.com/blog/asset-pricing-using-extreme-liquidity-part-2/12/11/2016">https://www.blackarbs.com/blog/asset-pricing-using-extreme-liquidity-part-2/12/11/2016</a>)
+Works well only if the data are really fat-tailed</p>
+
+<p>EVT methodology
+Take the log of fat-tailed data, sum over k, where k is the number of obs in the tail</p>
+
+<ol>
+<li>Plot your data</li>
+<li>Choose a threshold on data which defines the tail</li>
+<li>Apply an estimaor for gammma</li>
+<li>Repeat from part 2.</li>
+</ol>
+
+<p>Where does the tail start?</p>
+
+<p>Convexity to fat tails
+What makes fat tails fat tails results in density rising.
+Small probabilities are convex to error rate
+(X + something + X - something/ 2) is higher than X</p>
+
+<p>(P(m, sigma plus delta) + p(m, sigma - delta))/2</p>
+
+<p>change how the probability of event steepens as the sigma increases.
+The mass under the tail increases as sigma increases
+Do the whole distribution with uncertainty of sigma
+Perfectly fat-tailed distribution is With two observations, Tons of obs at 1 value and 1 value at some extreme value
+UNcertainty about sigma creates fat-tailedness</p>
+
+<p>Uncertainty about volatility gives you fat-tails
+You get the fat-tailed option price when you take an uncertain value for sigma</p>
+
+<p>Feta cheese
+What are your factors
+cost of milk, shift the cost of milk due to uncertainty around price
+You can see how fragile you how
+Ergodicity, complexity, scalability
+Real estate investment: interest rates up and down to see what happens to your business.
+How big of an alpha do you need? Usually we use too big of a deviation.
+A option on the Vix. Strike price, at ten, if vol goes up to 15 the price of option goes to 100, if vol goes down to 5 then the option
+Change in volatility of options. Vix, options to increased volatility, sell the options.
+Explosions in volatility</p>
+
+<p>Error on error. alpha is error. alpha_2 is error on error.
+Given your state of knowledge, it can be</p>
+
+<p>CLT, in the limit, the sum of random variables becomes a gaussian</p>
+
+<p>The stable distribution is the Gaussian</p>
+
+<p>Nature exists between gaussian and pareto. Within species is gaussian, between species is pareto.
+Nature has fractals but up to a limit. Because the earth is finite you have the gaussian process showing.
+What is fat tailed? Cities, sales of books, Size of companies,</p>
+
+<p>What is</p>
+
+<p>Several hundred million dollars</p>
+
+<p>The capacity used within a queuing system, for every part of the excess capacity, the time required to move through the system doubles.</p>
+
+<p>Survivorship bias
+You see survivors not losers and compute the average off the winners.
+Rennaissance around for more than 20 years because they took the tails seriously
+Bitcoin is it volatile?
+Remove the volatile period of the log returns.
+Plot the log returns. Plot the stable and the normal. The Normal distribution is not adequate but the stable is
+Fat tailed processes have long periods of &lsquo;normality&rsquo; and the extreme excursions from normality drive the fat-tailed
+For memoryless processes these rare events can happen sequently</p>
+
+<p>From the empirical data
+Once every three years, you can expect a loss of 40% or more. Given that you exceed that 40% loss what is the max you can lose.
+The max you can lose is 44%</p>
+
+<p>If you use the normal distribution then you are only estimating a 11 percent max drawdown once every 3 years.</p>
+
+<p>What if you use a stable distribition. The theoretical drawdown is 65% once every 3 years you can expect to lose 83%</p>
+
+<p>Which traders are losing money more often than they win but when they win they win way more. If you are not convex, then you cannot make money.</p>
+
+<p>All cryptos, eth, ltc, xrp, btc have the same characteristics.</p>
+
+<p>What are we doing, that is practical</p>
+
+<p>As you raise the variance, the mean goes up.
+Convexity bias. The more volatile the commodity, the more convexity. under high variance, forget about direction, think about variance
+If its convex, is it priced in?
+You have to have the mental stamina to be wrong all the time.
+Its ok to be wrong, be wrong small.
+You want a 1000 trades, and you want them all convex.
+general policy of accumulating things of that nature. If doing so, does not kill you then its good.</p>
+
+<p>publishing
+books are profitable all owned by Bertelsman, lots of small publishing houses
+Only a few make money, lots of books published, the book buyers buy all the source of supply.
+this strategy is 1/n
+Bitcoin as a book. Imagine lots of books. Big payoff when right, small loss when wrong. Risk sharing, theater financing, 1/n strategies.</p>
+
+<p>Get to the law of large numbers, book business is based on tails. They don&rsquo;t care. you have to have 1/n strategy. Mines that have extraction costs. Buy miners.</p>
+
+<p>How to Gamble if you must. The less correlated, the less bets you need. The more correlated, the more bets you need. When correlation gets to one you need infinite bets.</p>
+
+<p>Extreme Risk Management
+Dominant Factor Analysis</p>
+
+<p>Lot of data means bullshit
+Can hidden risks be quantified?
+Not how much but where does the risk come from.
+Hidden Risks:
+Ex Post: hidden risk appears when observed losses exceed anything that could have been extrapolated from past perf metrics,
+simply by using performance analysis tools</p>
+
+<p>Ex Ante: ps</p>
+
+<p>FoF Index, portfolio of hedge funds,
+Sharpe ratio is totally inefficient as a risk</p>
+
+<p>Optimizer is max(expected Return)/min(risk) the risk has two sources: hidden, measured. Since risk is hidden, it is hard to minimize.</p>
+
+<p>Credit driven fund. Long AAA, short T-bonds, duration. You are sensitve to the spread between t-bonds and corporate bonds
+nonlinear factor analysis&rsquo;</p>
+
+<p>What is sensitivity to risk factors. Identify the risk factors. Evaluate your sensitivity to risk factors.
+How nonlinear are your factors?
+The upside and downside are completely different.
+Fung-Hsieh 7 factor model misses large negative events.</p>
+
+<ol>
+<li>Identify a large set of factors</li>
+<li>Scan factors one at a time:
+
+<ol>
+<li>Select factors with a strong statistical relationship to the fund. Score</li>
+<li>Focus on extreme moves =&gt; Nonlinear Models, one extreme point is enough to tell you it is not linear</li>
+</ol></li>
+<li>Stress Selected Factors
+
+<ol>
+<li>Information ratio= Impact of Factor/Uncertainty</li>
+<li>Merge single-factor models to maximize information ratio</li>
+</ol></li>
+</ol>
+
+<p>Your measure should be what is your probability of ruin. Its like you need to know what the chance of getting a retard.
+Skin in the game on investment system vs. books.
+Rerun the</p>
+
+<p>RIsk management from Raphael
+A. Don&rsquo;t repeat twice the same mistake
+    1. Accept that you&rsquo;ve done something wrong
+    2. Learn what you did wrong and what you should&rsquo;ve done
+    3. See when you are in the same situation and act accordingly
+B. Learn from Others
+    1. From past experience when you were not born
+    2. From others experience
+    3. Apply 1,2,3 from above
+C. Extrapolate: Anticipate the unexpected
+    1. Extrapolate the</p>
+
+<p>AML Crypto</p>
+
+<p>Commandeered the printer, swift wire system, Had access to
+is the financial system moving in a way that one person can bring down the whole person
+Davos how to save the world. Geitner, Throwing tomatoes at his house, its that close.
+Regulators don&rsquo;t go after domestic banks, the enforcement is against foreign banks, Enforcement against domestic banks is weak or non-existent,
+Complexity of regulation creates a market for regulation mitigation by former</p>
+
+<p>Banks and Crypto
+Market demand is driving adoption from HNWI, Instituional clients
+Another asset class, seemingly unrelated to the market
+Adoption into existing frameworks.
+Crypto needs big banks to legitimize asset class
+Does crypto have a life with big financial institions
+Banks will say that crypto needs regulation so they can channel all crypto transactions through their systems</p>
+
+<p>JP Morgan coin for internal use. Network of banks with their blockchains, eventually will require coin to interact on the chain.
+To interact with the chain you will need to give them your details. Eventually crypto will lose all its anonymity and decentralized characteristics.</p>
+
+<h2 id="day-5-notes">day 5 notes</h2>
 
 <p>Long 100 calls. Long 100 puts. Short 110 Call. Short the 90 put.</p>
 

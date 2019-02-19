@@ -23,7 +23,7 @@
     </item>
     
     <item>
-      <title>RWRI Day 5</title>
+      <title>RWRI 10 Day 5</title>
       <link>https://jgerardsimcock.github.io/posts/rwri_5/</link>
       <pubDate>Fri, 15 Feb 2019 09:05:25 -0500</pubDate>
       
@@ -300,15 +300,13 @@ In my past, I have done many things to make a living.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jgerardsimcock.github.io/posts/notes/</guid>
-      <description>day 5 notes
-Long 100 calls. Long 100 puts. Short 110 Call. Short the 90 put.
-Long 100 Call. Short 110 call. 100.110 Call Spread
-Long 100 put. Short the 90 put. 100&amp;frasl;90 Put spread
-+1 100p, -1 90P, -1 80P, -1 70P
-Nonlinearity ends with the last strike. ML would fit sigmoid functions. Relu function. Sum of Relu function.
-Composition of strikes
-Short one option, long one option.
-Inverse heaviside function</description>
+      <description>day4 notes EVT
+Risk management from Raphael
+How does risk affect your business
+Bitcoin
+AML
+Ergodicity and Fat Tails Nonlinearity and Scaling: Avoid naive averaging
+Extreme Value Theory: mathematical machinery that allow you to prove the estimator you want to compute the parameters to prove a fat-tail Statistics is data plus assumptions All statistical assumptions are based on underlying assumptions You cannot blindly apply statistics. You must understand the assumptions behind your techniques.</description>
     </item>
     
   </channel>
