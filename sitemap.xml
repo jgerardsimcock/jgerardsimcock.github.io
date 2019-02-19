@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jgerardsimcock.github.io/posts/rwri_summarary/</loc>
+    <lastmod>2019-02-19T08:19:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jgerardsimcock.github.io/posts/rwri_5/</loc>
+    <lastmod>2019-02-15T09:05:25-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jgerardsimcock.github.io/posts/charts_2019_02_07/</loc>
     <lastmod>2019-02-07T08:24:26-05:00</lastmod>
   </url>
@@ -133,8 +143,12 @@
   </url>
   
   <url>
+    <loc>https://jgerardsimcock.github.io/posts/notes/</loc>
+  </url>
+  
+  <url>
     <loc>https://jgerardsimcock.github.io/</loc>
-    <lastmod>2019-02-07T08:24:26-05:00</lastmod>
+    <lastmod>2019-02-19T08:19:58+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -145,7 +159,7 @@
   
   <url>
     <loc>https://jgerardsimcock.github.io/posts/</loc>
-    <lastmod>2019-02-07T08:24:26-05:00</lastmod>
+    <lastmod>2019-02-19T08:19:58+08:00</lastmod>
     <priority>0</priority>
   </url>
   

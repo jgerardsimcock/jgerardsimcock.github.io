@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Thu, 07 Feb 2019 08:24:26 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 08:19:58 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Final Thoughts from RWRI 10</title>
+      <link>https://jgerardsimcock.github.io/posts/rwri_summarary/</link>
+      <pubDate>Tue, 19 Feb 2019 08:19:58 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/rwri_summarary/</guid>
+      <description>In the closing hours of the seminar we brought it all together with some conclusions and summary. Aphorism and poetry are information compression. It seems to be Talebs natural communication style.
+ The world is more fat-tailed then you think Your model has errors of 1 + alpha. That error will drastically shift your Mean and Standard Deviation more than you think. See 1. How far off is your error is 1+ alpha, 1 or 2 standard deviations?</description>
+    </item>
+    
+    <item>
+      <title>RWRI Day 5</title>
+      <link>https://jgerardsimcock.github.io/posts/rwri_5/</link>
+      <pubDate>Fri, 15 Feb 2019 09:05:25 -0500</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/rwri_5/</guid>
+      <description>On the last day, class started the day with some anecdotes. In Nassim&amp;rsquo;s own words: &amp;lsquo;Verbally you cannot express your view of the world. You can be bullish and short because if you are wrong you win big. If you are right, nothing really happens because everyone else already agrees with you.&amp;rsquo; What this means is that the payoff from being short and having that reality emerge is greater than the payoff from being long (bullish) since that expectation is already priced in.</description>
+    </item>
     
     <item>
       <title>Charts 2019-02-07</title>
@@ -273,6 +292,23 @@ This is an experiment. This is where I am posting updates and ideas that come to
 Where are we? How did we get here?
 I am a world citizen, currently based in Bali, Indonesia. I&amp;rsquo;ve spent most of my post-university years in Hawai&amp;rsquo;i and California with meaningful episodes in Beijing, NYC, Shanghai, and Bogota.
 In my past, I have done many things to make a living.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jgerardsimcock.github.io/posts/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/notes/</guid>
+      <description>day 5 notes
+Long 100 calls. Long 100 puts. Short 110 Call. Short the 90 put.
+Long 100 Call. Short 110 call. 100.110 Call Spread
+Long 100 put. Short the 90 put. 100&amp;frasl;90 Put spread
++1 100p, -1 90P, -1 80P, -1 70P
+Nonlinearity ends with the last strike. ML would fit sigmoid functions. Relu function. Sum of Relu function.
+Composition of strikes
+Short one option, long one option.
+Inverse heaviside function</description>
     </item>
     
   </channel>
