@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Wed, 20 Feb 2019 13:28:45 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Mar 2019 15:58:13 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Derivative Analytics with Python Review</title>
+      <link>https://jgerardsimcock.github.io/posts/dawp/</link>
+      <pubDate>Sun, 17 Mar 2019 15:58:13 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/dawp/</guid>
+      <description>After finishing the Real World Risk Institute I wanted to get some more knowledge about options pricing, how it works and how to do it in Python. I am grateful to Yves Hiplisch for his work on the book Derivative Analytics with Python. This is a practical and applied approach to valuing/pricing derivative instruments. The book also covers the theoretical foundations necessary to make the application of the ideas tractable. In fact, there is quite alot of mathematical notation in the text.</description>
+    </item>
     
     <item>
       <title>Real Vision Workshop</title>

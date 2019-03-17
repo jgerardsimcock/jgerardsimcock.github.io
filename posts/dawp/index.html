@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Derivative Analytics with Python Review | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">March 17, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Derivative Analytics with Python Review</h1>
+  <div class="content">
+    <p>After finishing the Real World Risk Institute I wanted to get some more knowledge about options pricing, how it works and how to do it in Python. I am grateful to Yves Hiplisch for his work on the book <a href="http://www.amazon.com/Derivatives-Analytics-Python-Simulation-Calibration/dp/1119037999/">Derivative Analytics with Python</a>. This is a practical and applied approach to valuing/pricing derivative instruments. The book also covers the theoretical foundations necessary to make the application of the ideas tractable. In fact, there is quite alot of mathematical notation in the text.</p>
+
+<p>The main contents of the book can be summarized here. This is taken mostly from the executive summary in Chapter 14 of the book.</p>
+
+<p>Using the <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=84250">Bakshi-Cao-Chen general market model</a> we can perform the following tasks:</p>
+
+<ul>
+<li>model market risks like index risk, volatility risk, jump risk, and short-rate risk</li>
+<li>efficiently value/price vanilla options using Fourier Transform methods in combination with numerical integration or Fast Fourier Transform</li>
+<li>Model parameter calibration to observed market quotes of instruments in order to produce single martingale measures of othre exotic derivatives</li>
+<li>Monte Carlo and the <a href="https://www.mathworks.com/help/fininst/examples/pricing-swing-options-using-the-longstaff-schwartz-method.html">Least Squares Monte Carlo</a> allows for the pricing of exotics and American options with early exercise</li>
+<li>Incomplete (also known as useless) delta hedging strategies for exotic instruments. Useless because unable to hedge against jump risk</li>
+</ul>
+
+<p>Personally, I learned the following:</p>
+
+<ul>
+<li>There is a substantial history of people trying to value options</li>
+<li>The &lsquo;classic&rsquo; option pricing models don&rsquo;t work due to inability to account for various types of risk</li>
+<li>Risk can come from a few key places: interest rate risk, market dislocation risk, volatility risk</li>
+<li>The idea of &lsquo;index risk&rsquo; seems like a fancy name for bad luck of the random walk of asset prices.</li>
+<li>Additional models were created to account for risks other than random price variations.</li>
+<li>Since we can identify sources of risk, we can calibrate models with observed values of the risk</li>
+<li>This frequent recalibration allows better estimates of option pricing</li>
+<li>Using Monte Carlo techniques we can extend the accuracy of valuations</li>
+<li>These valuation techniques turn continuous processes into discrete processes. So increasing the number of time steps in our discretization improves valuation</li>
+<li>American options are harder to value due to the uncertainty around the exercise date</li>
+<li>You need lots of different instruments in order to hedge your risk. Delta hedging can only hedge against random price movements, it does not work in a world with high volatility, interest rate or market dislocation risk.</li>
+<li>Martingales: This is the scenario where you have some 1/n process. You can take an n number of bets and be guaranteed to have the event occur at least once.</li>
+</ul>
+
+<p>What I did not spend alot of time on:</p>
+
+<ul>
+<li>Theoretical understanding of the different techniques</li>
+<li>Implementation of specific models or simulation techniques</li>
+</ul>
+
+<p>Notes and notebooks are <a href="https://github.com/jgerardsimcock/trading/tree/master/dawp_jg">here</a>.</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
