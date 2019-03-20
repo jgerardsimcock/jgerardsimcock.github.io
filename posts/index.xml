@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sun, 17 Mar 2019 15:58:13 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Mar 2019 10:10:45 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reading Now</title>
+      <link>https://jgerardsimcock.github.io/posts/reading_now_2/</link>
+      <pubDate>Wed, 20 Mar 2019 10:10:45 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/reading_now_2/</guid>
+      <description>Here is the current list of books I am reading
+World Affairs The Jungle Grows Back: America and the Imperiled World
+The New Rules of War: Victory in the Age of Durable Disorder
+Mental Hygiene Loving What Is: Four Questions That Can Change Your Life
+The Abolition of Man
+The Everlasting Man
+Trading Listed Volatility and Variance Derivatives
+Derivative Analytics with Python</description>
+    </item>
     
     <item>
       <title>Derivative Analytics with Python Review</title>
