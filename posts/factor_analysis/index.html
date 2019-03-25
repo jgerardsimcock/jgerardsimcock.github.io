@@ -102,6 +102,22 @@ debt to equity and earnings variability</li>
 
 <p>These methods can be reasoned about by humans. With a sufficient amount of time and education, they make sense to us. With PCA and deep learning the latent factors are not obvious or meaningful to humans.</p>
 
+<h2 id="risk-models-using-variance">Risk Models using variance</h2>
+
+<p>What is the factor exposure of a portfolio? For each factor, k, you can compute the exposure of the porfolio to that factor. Just as for a single asset we have factor exposure, factor return and specific return of asset, we can look at the exposure of each asset to each factor multiply the weight of the asset in the portfolio and sum across the assets to get a factor exposure of portfolio to factor k. We can do this for each factor and for each asset. If we take our returns for each asset and our weights for each asset we get something called the specific return Adding this to our factor contributions value gives us the total return of the portfolio. Ideally, the specific return explains less than the factor return.</p>
+
+<p>If we take variance of returns as a source of risk than we can model our risk by computing:</p>
+
+<ul>
+<li><em>Var(portfolio) = X.T(BFB.T + S)X</em></li>
+<li>X: Matrix of portfolio weights</li>
+<li>B: Matrix of factor exposures</li>
+<li>F: Covariance matrix of factors</li>
+<li>S: Matrix of specific variances</li>
+</ul>
+
+<p>Variance of one stock can be modeled as the variance of each factors contribution to stock variance plus the covariance of each factor plus the specific variance for the stock.</p>
+
 <h2 id="time-series-and-cross-sectional-models">Time Series and Cross Sectional Models</h2>
 
 <p>Cross-sectional models allow you to perform analysis on assets in a similar industry, country or other grouping at a given point in time. Time series models allow you to perform analysis on heterogenous types of assets through time.</p>
@@ -112,9 +128,35 @@ debt to equity and earnings variability</li>
 
 <h2 id="risk-factor-models-using-pca">Risk Factor Models using PCA</h2>
 
-<p>PCA is used in risk modeling so that we can identify the principal components with the greatest variance. We also decompose our returns matrix into factor_exposure and factor_returns matrices. This allows us to identify latent source of alpha and risk. We can then model each of these latent variables return profiles to see how a given assets exposure to the factor affects its return for some period.</p>
+<p>PCA is used in risk modeling so that we can identify the principal components with the greatest variance. We also decompose our returns matrix into factor exposure and factor returns matrices. This allows us to identify latent source of alpha and risk. We can then model each of these latent variables return profiles to see how a given assets exposure to the factor affects its return for some period.</p>
 
 <p>We can reallocate our weights to separate assets based on potential risk/return profiles for a given factor/asset pair. And we can update this as we move through time so if we estimate that the risk of a given factor has increased and one of our main positions has a high exposure for that factor, we can reduce or exit our position. Similarly if the returns of a given factor are going up we should increase our position for a given asset.</p>
+
+<p>When doing PCA, we need to center our data around zero. The total variance of the data points from the origin will be the same no matter how which basis we use. Each of the principal components will constitute/explain some portion of variance.</p>
+
+<p>Factor Returns for PCA is the dot product of principal components and asset returns</p>
+
+<p>For the risk model we need the covariance matrix of factor returns which is dot product of factor returns and its transpose divided.</p>
+
+<p>We also need a specific risk matrix which comes from our specifc returns. Specific returns is simply the actual returns minus the principal components times the factor returns. Specific risk matrix is the covariance matrix of the specific returns.</p>
+
+<p>To compute the PCA Factor Model we need the following components, all of which are computed simply from the returns time series.</p>
+
+<h5 id="factor-betas">Factor Betas</h5>
+
+<p>The exposure of each asset to the principal components, in sklearn pca, this will be <code>pca.components_.T</code></p>
+
+<h5 id="factor-returns">Factor Returns</h5>
+
+<p>The returns we can attribute to the principal components/factors. Its as if each principal component were an asset return time series</p>
+
+<h5 id="factor-covariance-matrix">Factor Covariance Matrix</h5>
+
+<p>For PCA the factor cov matrix is the diagonal of the variance of returns matrix. If you annualize this number, you multiply the covariance matrix by some annual scaling factor.</p>
+
+<h5 id="idiosyncratic-risk-matrix">Idiosyncratic risk matrix</h5>
+
+<p>Compute the idiosyncratic return by subtracting (factor betas * factor returns) from original returns. This residual is the idiosyncratic return. Take the variance and the diagonal along this matrix to get the idiosyncratic risk matrix.</p>
 
 <h2 id="risk-neutralization">Risk Neutralization</h2>
 
@@ -162,7 +204,7 @@ debt to equity and earnings variability</li>
 
 <h1 id="evaluating-alpha-factors">Evaluating Alpha Factors</h1>
 
-<h4 id="factor-returns">Factor Returns</h4>
+<h4 id="factor-returns-1">Factor Returns</h4>
 
 <p>We construct a theoretical portfolio with the alpha vector for a given time period and compute the returns
 for each successive time step. Standardize the alpha vector and compute single day returns from the weight of each alpha in the alpha vector times the retrun for the asset.</p>
@@ -224,7 +266,7 @@ for each successive time step. Standardize the alpha vector and compute single d
 
 <h4 id="objective-and-constraint-functions">Objective and Constraint functions</h4>
 
-<p>Our overall objective is to maximize alpha while minimizing risk. Our alpha model focuses on maximizing alpha and our risk focuses on minimizing risk. I know sounds easy. We want a quantity in the objective function that represents the portfolio return. This is our alpha vector multiplied by our weights. We want a quantity in our constraints that limits risk below some threshold. We can take the portfolio variance that we compute in our PCA risk model. We want to set this below a risk tolerance. The risk tolerance is set to the amount of drawdown/variance that an asset manager is willing to take on any given time period.</p>
+<p>Our overall objective is to maximize alpha while minimizing risk. Our alpha model focuses on maximizing alpha and our risk focuses on minimizing risk. I know. It sounds easy. We want a quantity in the objective function that represents the portfolio return. This is our alpha vector multiplied by our weights. We want a quantity in our constraints that limits risk below some threshold. We can take the portfolio variance that we compute in our PCA risk model. We want to set this below a risk tolerance. The risk tolerance is set to the amount of drawdown/variance that an asset manager is willing to take on any given time period.</p>
 
 <p>We use a library called cvxpy to optimize our portfolio. This libray allows you to define and minimize/maximize and objective function. It also takes a set of constraints under which to optimize. The outcome of this is that it allows us to know which stocks to put positions in. It defines a vector of weights for the portfolio for each stock.</p>
 
