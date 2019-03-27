@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Python Algo Trading Notes | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">March 26, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Python Algo Trading Notes</h1>
+  <div class="content">
+    
+
+<h5 id="ito-calculus">Ito Calculus</h5>
+
+<p>Calculus is useful for continuous process that are diferrentiable at every point from 0 to t. If your process is stochastic and has random jumps and fluctuations, you can not take the derivative of certain points along that line. For stochastic processes this is true and Ito calculua is one way to perform integration.</p>
+
+<h5 id="reimann-sums">Reimann Sums</h5>
+
+<p>Numerical approximation of integral with a finite sum.</p>
+
+<h5 id="euler-discretization">Euler Discretization</h5>
+
+<p>Discretization of continuous process and approximate numerical solution to a stochastic differential equation.</p>
+
+<h5 id="alpha-generation-strategies">Alpha Generation Strategies</h5>
+
+<ul>
+<li>Simple Moving Averages: SMA&rsquo;s generate trade signals and market positioning</li>
+<li>Mean Reversion: Prices will return to trend, once prices deviate to some level we signal reversion</li>
+<li>Momentum: Generate trade signals based on recent price movements</li>
+
+<li><p>Machine and Deep Learning: Harder to infer what the meaning of the signals are</p></li>
+
+<li><p>Strategies are developed for structured financial time series, no unstructured text data is used</p></li>
+</ul>
+
+<h4 id="machine-learning-approaches">Machine Learning Approaches</h4>
+
+<ul>
+<li><p>Ordinary Least Squares</p>
+
+<ul>
+<li>Index levels</li>
+<li>Returns</li>
+<li>Market direction</li>
+</ul></li>
+
+<li><p>Logistic Regression</p>
+
+<ul>
+<li>Market direction with lags</li>
+</ul></li>
+
+<li><p>Deep Learning with TensorFlow</p>
+
+<ul>
+<li>Use returns with lag of 5 to predict market direction</li>
+<li>Add momentum or other transformed data as features to the data set to improve prediction</li>
+</ul></li>
+</ul>
+
+<h4 id="event-based-backtesting">Event Based Backtesting</h4>
+
+<ul>
+<li><p>Vectorized backtesting cannot handle all challenges present within algorithmic trading environment</p>
+
+<ul>
+<li>Lookahead-bias: Vectorized backtesting is based on complete dataset available and not able to account for new data</li>
+<li>Simple: Fixed trading costs and fixed amounts per trade cannot be modeled</li>
+<li>Non-recursive: Trading strategies may recurse until some state like profit/loss up to a limit. Vectorization cannot cope with that.</li>
+</ul></li>
+
+<li><p>Event-Based: means the arrival of new data whether price or exogenous</p>
+
+<ul>
+<li>incremental approach: backtesting understands new data will arrive</li>
+<li>realistic: You can model the processes triggered by the new event.</li>
+<li>Path dependency: easy to track path dependent, conditional, statistics</li>
+<li>re-usability: backtesting different strategies requires the same base functions</li>
+<li>Close to trading operations. You can trade with the same tools you use to backtest</li>
+</ul></li>
+
+<li><p>General logic</p>
+
+<ul>
+<li>Check our position</li>
+<li>If neutral or long and the current day&rsquo;s price meets the criteria to go short, short, set position to short</li>
+<li>If neutral or short and the current day&rsquo;s price meets the criteria to go long, long, set position to long
+<br /></li>
+</ul></li>
+
+<li><p>Event based code is <a href="https://github.com/jgerardsimcock/trading/tree/master/pyaglo_cert">here</a></p></li>
+</ul>
+
+<h5 id="online-algorithms">Online Algorithms</h5>
+
+<p>Financial Trading algorithms work on historical as well as the most current piece of information. They have no view into the future or the entire data set.</p>
+
+<h5 id="cfd-trading-on-oanda">CFD Trading on Oanda</h5>
+
+<ul>
+<li>OANDA has provided a REST API for alorithmic trading</li>
+<li>The Python Quants have provided a wrapper for that API called tpqoa
+
+<ul>
+<li>The class retrieves instruments to trade</li>
+<li>Performs some datetime operations</li>
+<li>Retrieves bid and ask prices for the instruments</li>
+<li>Create order for buy or sell</li>
+<li>Stream data method that starts real-time data feed and generates trade signals by calling <code>on_success</code></li>
+<li><code>on_success</code> method that allows you to update the state of your positions at every tick
+
+<ul>
+<li>This is where you&rsquo;d implement your strategy whatever it is<br /></li>
+</ul></li>
+<li>Account management and transaction management</li>
+</ul></li>
+</ul>
+
+<h5 id="equity-trading-on-interactive-brokers">Equity trading on Interactive Brokers</h5>
+
+<ul>
+<li>Python Quants provide a wrapper for interacting with Interactive Brokers</li>
+<li>This wrapper inherits from the main python API of Interactive Brokers</li>
+<li>The wrapper handles contract setup and order execution as well as other trading tasks needed on the platform</li>
+<li>Define your strategy, the instrument, the exchange etc and then call this class with your strategy</li>
+</ul>
+
+<h5 id="automated-trading-operatoins">Automated Trading Operatoins</h5>
+
+<ul>
+<li>How to think about the whole lifecycle of an automated trade for a single instrument/strategy</li>
+</ul>
+
+<h6 id="capital-management">Capital Management</h6>
+
+<ul>
+<li>Ed Thorpe&rsquo;s adaptation of Kelly Criterion to investment management is widely used</li>
+<li>The optimal ratio for the Kelly Criterion is (mu - r)/ sigma^2</li>
+<li>mu is mean expected return</li>
+<li>r is risk-free rate</li>
+<li>sigma^2 is variance of returns</li>
+<li>This value implies a levarage ratio: for every dollar available f dollars shall be invested</li>
+<li>All things equal, the higher the return and lower the volatility the higher the leverage ratio</li>
+<li>Leverage will increase volatility so there are half-kelly&rsquo;s and two-thirds kellys</li>
+<li>If you are leveraged, volatility in your capital will be magnified if asset price volatility increases</li>
+</ul>
+
+<h6 id="ml-based-trading-strategy">ML-based trading strategy</h6>
+
+<ul>
+<li>Example strategy is binary prediction of market direction. Given up previous up/down day, what is chance of future up/down day.</li>
+<li>Data is based on midpoint returns between askclose and bidclose with lags up to 5 days</li>
+<li>Compute lag returns for each day in lag period</li>
+<li>Whereever lag is posative set lag col value to 1, otherwise 0</li>
+<li>Create a direction column that is basically our y/target value for any day that was positive, set to 1, otherwise negative 1</li>
+<li>Our features in this setup are the lag days market direction</li>
+<li>After training and testing data, perform the vectorized backtesting to see implied performance, adding transaction costs</li>
+<li>If you need more precise simulation of real trading env, you can use event-based backtesting to improve granular simulation of discrete events</li>
+<li>Compute the kelly criterion for the strategy</li>
+<li>At the retail level, you may not have access to leverage at the implied kelly criterion levels</li>
+</ul>
+
+<h5 id="risk-analysis">Risk Analysis</h5>
+
+<ul>
+<li>Leverage is increasing risk, meaningfully</li>
+<li>Max drawdown: largest loss after recent high</li>
+<li>Longest Drawdown: longest period that the strategy needs to get back to a recent high</li>
+<li>Technically, new high is defined as a drawdown value of 0</li>
+<li>Drawdown period is time between highs equal to 0</li>
+<li>Value at Risk: Max loss to be expected given a time horizon and a confidence level</li>
+<li>As the time horizon, increases the VaR increases, except for the most extreme cases</li>
+</ul>
+
+<h5 id="saving-the-model-object">Saving the model object</h5>
+
+<ul>
+<li>Using pickly or some other serialization tool you can preserve your model once it has passed any backtesting</li>
+</ul>
+
+<h5 id="online-algorithms-1">Online Algorithms</h5>
+
+<ul>
+<li>Online algos consume data tick-by-tick and predict the market direction for the next time interval</li>
+<li>If we use the preserved/pickled model object to predict the market direction tick-by-tick, we will not be able to update/retrain our model</li>
+<li>Offline algos become online with
+
+<ul>
+<li>Tick-data arriving in real time</li>
+<li>resampling: resample tick data to bar size given the algos&rsquo; time horizon</li>
+<li>prediction over next time interval/bar</li>
+<li>Order: If prediction changes current order status, new order is executed, otherwise do nothing</li>
+</ul></li>
+</ul>
+
+<h5 id="deployment-of-model-for-live-trading">Deployment of model for live trading</h5>
+
+<ul>
+<li>Reliability: High availability &gt; 99.99% and should take care of backups, redundancy of data drives, web connections</li>
+<li>Performance: Depending on computational demands of algos deployed, you need to make sure you have enough computing capacity to handle task load</li>
+<li>Security: Hardware protected from physical hazards and software protected from hacks and other threats</li>
+<li>These constraints can be fulfilled by cloud providers or deployed locally at the trading site</li>
+</ul>
+
+<h5 id="logging-and-real-time-monitoring">Logging and Real time monitoring</h5>
+
+<ul>
+<li>Logging persists events on disks for later inspection</li>
+<li>The Python Quants have provided a script to run the automated strategy with logging for each step of transaction</li>
+<li>Using ZeroMQ: Messages are trasmitted by the trading/logging routine and received by the monitoring routine</li>
+</ul>
+
+<h5 id="summary">Summary</h5>
+
+<p>Many things I need to understand to effectively implement an automated trading strategy were covered in the training. I would like to better understand automated risk management as well as multi-strategy trading. This will be the next focus.</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+

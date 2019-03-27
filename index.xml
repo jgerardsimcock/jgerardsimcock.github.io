@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Wed, 20 Mar 2019 10:10:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2019 11:22:08 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python Algo Trading Notes</title>
+      <link>https://jgerardsimcock.github.io/posts/python_algo_trading/</link>
+      <pubDate>Tue, 26 Mar 2019 11:22:08 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/python_algo_trading/</guid>
+      <description>Ito Calculus Calculus is useful for continuous process that are diferrentiable at every point from 0 to t. If your process is stochastic and has random jumps and fluctuations, you can not take the derivative of certain points along that line. For stochastic processes this is true and Ito calculua is one way to perform integration.
+Reimann Sums Numerical approximation of integral with a finite sum.
+Euler Discretization Discretization of continuous process and approximate numerical solution to a stochastic differential equation.</description>
+    </item>
     
     <item>
       <title>Reading Now</title>
