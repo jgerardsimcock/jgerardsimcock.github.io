@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Listed Volatility and Variance Derivatives | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 1, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Listed Volatility and Variance Derivatives</h1>
+  <div class="content">
+    
+
+<h4 id="chapter-1-derivatives-volatility-and-variance">Chapter 1 Derivatives Volatility and Variance</h4>
+
+<h5 id="volatility-and-variance-concepts">Volatility and Variance Concepts</h5>
+
+<ul>
+<li>Realized/Historical Volatility: Standard Deviations of log returns of financial time series</li>
+<li>Instantaneous Volatility: Volatility factor for a diffusion process</li>
+<li>Implied Volatility: volatility that if you plug into BSM model will give you the market observed price of an option</li>
+<li>If you take the square of these values you get the variance of them</li>
+<li>Annualized Variance is the result of variance times 252, the number of trading days in one year</li>
+</ul>
+
+<h5 id="volatility-and-variance-as-asset-class">Volatility and Variance as asset class</h5>
+
+<ul>
+<li>VIX represents 30-day variance swap</li>
+<li>VIX trading began in 2004</li>
+<li>VIX options begain in 2006</li>
+<li>EUREX launched futures on EUROSTOXX50 in 2005</li>
+<li>2010 VSTOXX index options created</li>
+<li>2014 variance futures contract for EURO Stoxx 50</li>
+</ul>
+
+<h5 id="vol-of-vol">Vol of Vol</h5>
+
+<ul>
+<li>VVIX,  VVSTOXX reflect 30-day expectations of volatility</li>
+</ul>
+
+<h5 id="volatility-trading">Volatility Trading</h5>
+
+<ul>
+<li>Long VSTOXX Future: Hedge equity positions and hedge short realized vol strategy</li>
+<li>Short VSTOXX Future: Speculate mean reversion after vol strike, reduced vega exposure to long vega option portfolios</li>
+<li>Term Structure arbitrage: If carry trade possible, and contango, short front and long back month</li>
+<li>Relative value arbitrage: Trade against other volatility instruments</li>
+<li>Long OTM Calls: Market crash insurance</li>
+<li>Short ATM Calls: Expecting mean reversion after significant market volatility</li>
+<li>Long ATM Straddle: When VVOL is high, buy put-call with same ATM strike and if vol moves fast enough in one direction, you sell</li>
+</ul>
+
+<h5 id="variance-trading">Variance Trading</h5>
+
+<ul>
+<li>Long Variance Future: Variance is higher than expected. More volatility in the moarket</li>
+<li>Short Variance Future: Variance is lower than expected. Less vol in the narket</li>
+<li>Forward Vol/Variance Trading: Gain exposure to term structure</li>
+</ul>
+
+<h4 id="chapter-3-model-free-replication-of-variance">Chapter 3: Model Free Replication of Variance</h4>
+
+<ul>
+<li>Spanning with options: using options to replicate the payoffs of certain state-contingent securities</li>
+<li>Log contracts: Used in the valuation of variance swaps, can be valued with option spanning technique of infinite strips of put call options with each strip weighted by the square of the strike price</li>
+<li>Constant Dollar Gamma: if we weight by the square of the strike, there is a range for which dollar gamma is constant</li>
+<li>VSTOXX as volatility index
+
+<ul>
+<li>One interpretation of VSTOXX is the fair variance swap rate for variance swap with a given maturity</li>
+<li>Implied Volatility calculation relies on a model</li>
+<li>VSTOXX and VIX only uses market-observed prices</li>
+<li>Realized variance at a given future date can be replicated with infinite strips of calls and puts maturing at that date</li>
+<li>Realized vol is just the square root of that value</li>
+</ul></li>
+</ul>
+
+<h4 id="chapter-4-data-analysis-and-strategies">Chapter 4: Data Analysis and Strategies</h4>
+
+<ul>
+<li>Covers the retrieval of the data from the sources on the internet</li>
+<li>Visualization of basic trend that when market drops, vol spikes, demonstrating visually negative correlation</li>
+<li>Using log returns perform a correlation analysis on EUROSTOXX 50 and VSTOXX
+
+<ul>
+<li>Demonstrates numerically the high negative correlation between the two assets</li>
+</ul></li>
+<li>Adding a time dimension to the analysis demonstrates that correlation is constantly changing for different time windows but is generally negative</li>
+</ul>
+
+<h5 id="strategies">Strategies</h5>
+
+<ul>
+<li>Constant Propotion Investment Strategies</li>
+<li>Assuming direct investment in both the VSTOXX and EUROSTOXX, keeping a 30% stake in VSTOXX we can see that during downturns this strategy protects against downside risk</li>
+<li>Using an active strategy that maintains the constant proportion of 30% improves performance even more</li>
+<li>During different time periods, there are different optimal ratios of VSTOXX to EUROSTOXX</li>
+</ul>
+
+<h4 id="chapter-5-vstoxx-index">Chapter 5: VSTOXX Index</h4>
+
+<ul>
+<li>VSTOXX index is computed from two sub-indexes
+
+<ul>
+<li>Gather data</li>
+<li>Compute Sub-Indexes</li>
+<li>Compute VSTOXX</li>
+</ul></li>
+<li>Sub-indexes are based on 1 Month, 2 Month and 3 Month maturity options</li>
+<li>At any given time there are options for expriy in 1, 2, 3, 6, 9, 12, 18, and 24 months.</li>
+<li>VSTOXX is computed as the linear interpolation between two sub-indexes.</li>
+<li>Compute the two sub-indexes and then take square root</li>
+<li>There are actually errors for this calculation method and they are big when it matters</li>
+<li>I need to investigate more how this calculation and the actual values are used to price securities</li>
+</ul>
+
+<h4 id="chapter-6-valuing-volatility-options-and-futures">Chapter 6: Valuing volatility options and futures</h4>
+
+<ul>
+<li><p>Futures valuation</p>
+
+<ul>
+<li>iExponentially weighted average of long-run mean current value of the index</li>
+<li>We can compute a futures term-structure by computing the price for different maturites</li>
+</ul></li>
+
+<li><p>Options valuation</p>
+
+<ul>
+<li>Way more complex than the future</li>
+<li>Pricing formula relies on a the drawing from a non-central chi-square distribution</li>
+</ul></li>
+
+<li><p>Monte Carlo</p>
+
+<ul>
+<li>MCS is used to simulate multiple paths for more accurate pricing</li>
+<li>Discretize the stochastic differential equation to obtain difference equation</li>
+<li>We need to set the number of simulations/paths as well as the number of time steps in the discretization</li>
+<li>The estimate for the option price is the average over all the paths of the max between option call value and zero at maturity</li>
+<li>This value is then multiplied exponentially weighted short rate</li>
+<li>Monte Carlo estimation becomes more accurate as the number of time steps per simulation is increased</li>
+<li>Moment matching and anti-thetic paths are added to increase the accuracy of the monte carlo estimates</li>
+<li>Moment matching is better at reducing variance</li>
+</ul></li>
+
+<li><p>Market-based valuation and calibration</p>
+
+<ul>
+<li>Use vanilla options to find the parameters that solve for the market observed prices</li>
+<li>During optimization run use MSRE or MSAE to minimize error between estimate and observed prices</li>
+<li>Compute the call prices for series of strikes and then run against the observed values computing the error</li>
+<li>Model calibration is force run globally with brute force. Then parameters are then fed into fmin to find local min</li>
+</ul></li>
+</ul>
+
+<h4 id="chapter-7-volatility-valuation-with-jump-diffusion-and-term-structure">Chapter 7: Volatility Valuation with Jump diffusion and term structure</h4>
+
+<ul>
+<li><p>Adding term structure and jump diffusion features enables the accurate calibration of pricing model to observed market prices</p></li>
+
+<li><p>Square Root Jump Diffusion exists in filtere probability space from T 0 to infiniti.</p>
+
+<ul>
+<li>Filtered Probability Space</li>
+<li>Continuous state space</li>
+<li>sigma algebra</li>
+<li>filtration: family of non-decreasing sigma algebra</li>
+<li>P: real or objective probability measure</li>
+</ul></li>
+
+<li><p>The SRJD Model is represented by a stochastic differential equation</p></li>
+
+<li><p>To generate valuations at discrete time steps we need to discretize each of he intervals in the continuous space</p></li>
+
+<li><p>Deterministic shift approach allows for better approximation of different interest rates within the term structure</p></li>
+
+<li><p>Implementation of the model calibration for square root diffusion portion:</p>
+
+<ul>
+<li>First calibrate the square root diffusion portion of the model to observed volatility</li>
+<li>Calibration is performed with MSE between observed and predicted</li>
+<li>The calibration yields optimal parameters that minimize the error between the observed and predicted</li>
+<li>The optimal parameters are then used to compute forward rates</li>
+<li>When we compare the observed forward rates with the estimated forward rates</li>
+<li>For each of the 8 maturities within the term structure we can compute the difference between the estimated and observed</li>
+</ul></li>
+
+<li><p>Shifted volatility process estimation:</p>
+
+<ul>
+<li>Discretize the model using Euler discretization procedure using full truncation scheme</li>
+<li>Generate random numbers to initialize the state of the Monte Carlo Simulation.</li>
+<li>Variance Reduction techniques of moment matching and anti-thetic paths are used</li>
+<li>Deterministic Shift is estimated using an cubic spline interpolation between the estimated forward rates</li>
+</ul></li>
+
+<li><p>Deterministic shift allows for better estimation of options throughout the term structure</p></li>
+
+<li><p>Jump component inclusion improves estimation for shorter maturities</p></li>
+</ul>
+
+<h4 id="chapter-8-terms-of-vstoxx-and-its-derivatives">Chapter 8: Terms of VSTOXX and its derivatives</h4>
+
+<ul>
+<li><p>EUROSTOXX50</p>
+
+<ul>
+<li>European blue chip stocks</li>
+<li>50 Largest companies by market cap in Europe</li>
+<li>UK and Switzerland not included</li>
+<li>France and Germany is most significant country weighting</li>
+<li>Banking and industrial is highest sector weighting</li>
+<li>The smaller set of companies and large weight of financials causes 30-day volatility to be much larger than VIX</li>
+</ul></li>
+
+<li><p>VSTOXX</p>
+
+<ul>
+<li>out of the money put and call options on EUROSTOXX50</li>
+<li>Estimated 30-day implied volatility by interpolating implied vol from two nearby maturity months</li>
+<li>1, 2, 3, 6, 9, 12, 18, 24 month indexes also computed</li>
+<li>Futures and Options contracts</li>
+</ul></li>
+</ul>
+
+<h4 id="chapter-9-realized-variance-and-variance-swaps">Chapter 9: Realized Variance and Variance Swaps</h4>
+
+<ul>
+<li>Realized Variance: The observed variance of log returns a given time window
+
+<ul>
+<li>Each time window will have differente realized variance</li>
+<li>Realized Variance calculated on underlying</li>
+</ul></li>
+<li>Variance Swap: allows investors to trade future realized variance against current implied vol</li>
+<li>Payoff for variance swap is just the variance at time t minus the strike variance or zero, whichever greater</li>
+<li>Notional: Variance swaps have a unit value greater than one. Take multiply vega notional * 2 * strike to get notional</li>
+<li>Vega Notional tells us how much payoff we want for each additional point of volatility experienced</li>
+<li>Mark-to-market: time-weighted average of realized variance at time t and implied variance for the remaining period from t onwards</li>
+<li>Vega Sensitivity: Decreases with time as maturity approaches</li>
+<li>Realized variance can be statically hedged with out of the money put and call options</li>
+<li>Variance takes into account all strikes for a given maturity</li>
+</ul>
+
+<h4 id="chapter-10-variance-futures-on-eurex">Chapter 10: Variance Futures on Eurex</h4>
+
+<ul>
+<li>Realized Variance</li>
+<li>Different cash flow profile for daily futures trading due to margin requirements</li>
+<li>Net Present Value and Discount Factor: If you are borrowing to purchase variance swaps you need to account for this</li>
+<li>Accumulated Return on modified variation: variance futures trading leads to daily margin payments that have impact on present value of the variance future</li>
+<li>Euribor Overnight Index Average is used to compute Accumulated Return on Modified variation</li>
+<li>Traded Variance Strike: Time weighted average of realized variance up to time t and the implied variance from time t to T</li>
+<li>The traded futures price is your discount factor multiplied by realized var minus implied var at T  minus accumulated Return on modified variation at time step t + 3000 scaling factor</li>
+<li>The number of futures is the notional multiplied by T/(T- t)</li>
+<li>Par variance strike is basically a weighted implied vol up to time t</li>
+<li>Futures Settlement Price: mark-to-market value of corresponding variance swap minus ARVM + 3000</li>
+<li>Variance swap vs variance future: Eurex variance futures are meant to replicate OTC variance swaps</li>
+</ul>
+
+<h4 id="chapter-11-trading-and-settlement">Chapter 11: Trading and Settlement</h4>
+
+<ul>
+<li>Intraday Trading: Variance futures are traded on exchange in terms of vega notional at volatility</li>
+<li>Intraday there is actually no trading so trades are made at live prices and some conversion factors provided by Eurex</li>
+<li>Notional Vega and volatility are the basis for trading</li>
+<li>At the end of the day, vol and notional are converted to variance futures at settlement price for number of futures determined intraday</li>
+<li>As volatility increases there is an effect of the margin associated with each futures contract</li>
+</ul>
+
+<h4 id="chapters-12-14-dx-analytics-python-package">Chapters 12-14: DX-Analytics python package</h4>
+
+<ul>
+<li>DX analytics allows for different models of asset behavior</li>
+<li>Able to price a single instrument or a portfolio of instruments</li>
+<li>Can price American or European options</li>
+<li>Able to account for different types of risk like jumps and</li>
+<li>Uses monte carlo simulation to generate lots of paths for valuation</li>
+</ul>
+
+<p>Notebooks with notes and code <a href="https://github.com/jgerardsimcock/trading/tree/master/lvvd">here</a></p>
+
+<p>Filtration</p>
+
+<p>Sigma Algebra</p>
+
+<p>Continuous State Space</p>
+
+<p>Stochastic Processes</p>
+
+<p>Discretization</p>
+
+<p>full trunction scheme of discretization</p>
+
+<p>Deterministic shift approach</p>
+
+<p>moment matching</p>
+
+<p>anti-thetic paths</p>
+
+<p>term structures of the short rate</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+

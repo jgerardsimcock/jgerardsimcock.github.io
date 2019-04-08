@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Tue, 26 Mar 2019 11:22:08 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2019 14:16:16 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Listed Volatility and Variance Derivatives</title>
+      <link>https://jgerardsimcock.github.io/posts/lvvd/</link>
+      <pubDate>Mon, 01 Apr 2019 14:16:16 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/lvvd/</guid>
+      <description>Chapter 1 Derivatives Volatility and Variance Volatility and Variance Concepts  Realized/Historical Volatility: Standard Deviations of log returns of financial time series Instantaneous Volatility: Volatility factor for a diffusion process Implied Volatility: volatility that if you plug into BSM model will give you the market observed price of an option If you take the square of these values you get the variance of them Annualized Variance is the result of variance times 252, the number of trading days in one year  Volatility and Variance as asset class  VIX represents 30-day variance swap VIX trading began in 2004 VIX options begain in 2006 EUREX launched futures on EUROSTOXX50 in 2005 2010 VSTOXX index options created 2014 variance futures contract for EURO Stoxx 50  Vol of Vol  VVIX, VVSTOXX reflect 30-day expectations of volatility  Volatility Trading  Long VSTOXX Future: Hedge equity positions and hedge short realized vol strategy Short VSTOXX Future: Speculate mean reversion after vol strike, reduced vega exposure to long vega option portfolios Term Structure arbitrage: If carry trade possible, and contango, short front and long back month Relative value arbitrage: Trade against other volatility instruments Long OTM Calls: Market crash insurance Short ATM Calls: Expecting mean reversion after significant market volatility Long ATM Straddle: When VVOL is high, buy put-call with same ATM strike and if vol moves fast enough in one direction, you sell  Variance Trading  Long Variance Future: Variance is higher than expected.</description>
+    </item>
     
     <item>
       <title>Python Algo Trading Notes</title>
