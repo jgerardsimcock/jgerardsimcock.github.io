@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Chapter 1: Advances in Financial Machine Learning | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 9, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Chapter 1: Advances in Financial Machine Learning</h1>
+  <div class="content">
+    
+
+<p>Chapter 1 notes</p>
+
+<p>Backtest fitting make Machine learning in finance more difficult than some other areas of ML</p>
+
+<p>Financial ML vs standard ML</p>
+
+<h4 id="failure-of-sysphus-paradigm">Failure of Sysphus Paradigm</h4>
+
+<p>Discretionary PMS operate in siloed systems. Collaboration is difficult for these professionals. They have their own approaches and idiosyncratic methods for investment decision making. This approach when applied to machine learning and quantitative trading does not work. Researchers will fall into the trap of either a false positive with an overfit backtest, or the factor based approach which is a crowded strategy, but has low sharpe ratio and support in the research community.</p>
+
+<h3 id="the-meta-strategy-approach-and-the-production-chain">The Meta-Strategy approach and the Production Chain</h3>
+
+<p>The machine learning approach requires many steps Data-curation, HPC Infrastructure, Software Dev, Feature Analysis, Execution Simulators, Backtesting. Doing this alone is onerous and maybe impossible. The Meta Strategy approach is to have each quant specialize in their task while having a holistic awarenss of the whole process. The National Labs are run this way. Organized collaboration vs individual tackling all tasks.</p>
+
+<h4 id="the-production-chain">The Production Chain</h4>
+
+<h5 id="data-curation">Data Curation</h5>
+
+<ul>
+<li>Collecting, cleaning, storing, indexing, delivering data to production chain</li>
+<li>market microstructure experts and comms protocols like FIX</li>
+<li>Practitioners must be experts in the asset class for which the data is describing</li>
+</ul>
+
+<h5 id="feature-analysis">Feature Analysis</h5>
+
+<ul>
+<li>Transforming raw data into signals</li>
+<li>Practitioners are experts in signal processing, information theory, labeling, weighting, classifiers, and feature importance</li>
+<li>Feature finding is not an investment strategy on its own. It can be used for market making, position sizing, risk management, execution monitoring</li>
+</ul>
+
+<h5 id="strategists">Strategists</h5>
+
+<ul>
+<li>Informative features are turned into investment algorithms</li>
+<li>Strategist parse through libraries of features looking for ideas to develop a strategy</li>
+<li>Make sense of features and devlop theory that explains them</li>
+<li>Practitioners are financial data scientists</li>
+<li>Theory must explain large set of features, but importantly, why an economic agent will lose money to the trader</li>
+<li>Once strategy is finalized, strategist will prototype the algo for backtesting</li>
+</ul>
+
+<h5 id="backtesters">Backtesters</h5>
+
+<ul>
+<li>Assess the profitability of a strategy under various scenarios</li>
+<li>One scenario is the one we got with history</li>
+<li>We must simulate lots of potential realities to understand how it would perform</li>
+<li>Practitioners are financial data scientists with deep knowledge of empirical and experimental techniques</li>
+<li>Backtest analysis must evaluate probability of backtest overfit by taking into account number of backtests required to reveal strategy</li>
+<li>Results should only be shared with management</li>
+</ul>
+
+<h5 id="deployment-team">Deployment Team</h5>
+
+<ul>
+<li>Integrates strategy code into the production line</li>
+<li>Algo specialists and mathematical programmers</li>
+<li>Ensure the prototype and implemenation are logically equivalent</li>
+<li>These professionals are knowledgeable in continuous integration, distributed and parallel computing, HPC, schedulers, vectorization</li>
+</ul>
+
+<h5 id="portfolio-oversight">Portfolio Oversight</h5>
+
+<ul>
+<li>Embargo period: Run strategy on data observed after the backtest, if good performance persists move to next stage</li>
+<li>Paper Trading:
+
+<ul>
+<li>Run on live, real-time feed,</li>
+<li>performance will account for:
+
+<ul>
+<li>data parsing latencies</li>
+<li>calculation latencies</li>
+<li>execution latencies and</li>
+<li>Other delays between observation and positioning</li>
+</ul></li>
+<li>Continues until performance evidence is sufficient</li>
+</ul></li>
+<li>Graduation: Strategy deployed on a position and performance measured precisely on risk, returns, and cost</li>
+<li>Re-Allocation:
+
+<ul>
+<li>Allocation follows concave function: small then large as strategy expands then small as strategy decays</li>
+</ul></li>
+<li>Decomission: Performance declines and the theory behind the strategy cannot be backed by evidence</li>
+</ul>
+
+<h5 id="it-is-preferable-to-release-new-variations-of-old-strategies-and-run-in-parallel-with-old">It is preferable to release new variations of old strategies and run in parallel with old</h5>
+
+<h4 id="successful-machine-learning-strategies-in-finance">Successful Machine Learning Strategies in Finance</h4>
+
+<p>Econometrics as the reason economics and finance have not made any progress in 70 years
+Hard to believe that finance and its complexities could be represented by something as simple as an inverted covariance matrix</p>
+
+<p>Some common issues and their solutions in financial ML</p>
+
+<ul>
+<li><p>Data</p>
+
+<ul>
+<li>Problem: GIGO</li>
+<li>Work with unique, hard to manipulate data</li>
+<li>Structure Data Correctly</li>
+<li>Produce informative labels</li>
+<li>Model non-IID series properly</li>
+<li>Find predictive features</li>
+</ul></li>
+
+<li><p>Software</p>
+
+<ul>
+<li>Problem: Specialized task requires custom tools</li>
+<li>Develop your own classes that execute unique routines specific to problem/feature you are modeling</li>
+</ul></li>
+
+<li><p>Hardware</p>
+
+<ul>
+<li>Problem: Computationally intensive</li>
+<li>Become an HPC expert</li>
+<li>Think in multiprocessing architectures and parallelism</li>
+</ul></li>
+
+<li><p>Mathematics</p>
+
+<ul>
+<li>Use experimental math to solve hard problems</li>
+<li>Become familiar with memory preserving data transformations</li>
+<li>Use experimental methods to assess value of strategy</li>
+<li>Use methods (Markov, MMGs) to detect structural breaks anc quantify amount of information carried by financial time series</li>
+<li>Learn queuing methods for distributed computing to break apart complex tasks</li>
+<li>Become familiar with discrete methods and quantum computing</li>
+</ul></li>
+
+<li><p>Meta-Strategies</p>
+
+<ul>
+<li>Develop methods to mass produce strategies</li>
+<li>Run the business like a research lab</li>
+<li>Build research process that identifies features across relevant asset classes while dealing with multi-collinearity of features</li>
+<li>Combine multiple predictions into a single bet</li>
+<li>Allocate funds using robost method that performs well out of sample</li>
+</ul></li>
+
+<li><p>Overfitting</p>
+
+<ul>
+<li>Problem: Standard Cross-validation fails in financial ML</li>
+<li>Ask yourself in what way your results are bias</li>
+<li>Use alternative backtest paradigms other than historical simulation</li>
+<li>Understand by how much your backtests may be overfitting</li>
+<li>Learn allocation techniques that do not over allocate to overfit in-sample signals</li>
+</ul></li>
+</ul>
+
+<h4 id="backtest-fixation">Backtest Fixation</h4>
+
+<ul>
+<li>Backtesting is most important open problem in finance. Any book on finance that does not seriously address it is not worth reading</li>
+<li>Financial ML has lower signal-to-noise ratio, datasets are shorter and backtest overfit is a constant threat to work</li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
