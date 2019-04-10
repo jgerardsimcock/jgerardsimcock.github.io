@@ -18,10 +18,10 @@
       <pubDate>Tue, 09 Apr 2019 18:21:48 +0800</pubDate>
       
       <guid>https://jgerardsimcock.github.io/posts/finml_1/</guid>
-      <description>Chapter 1 notes
+      <description>Chapter 1 notes for Advances in Financial Machine Learning
 Backtest fitting make Machine learning in finance more difficult than some other areas of ML
 Financial ML vs standard ML
-Failure of Sysphus Paradigm Discretionary PMS operate in siloed systems. Collaboration is difficult for these professionals. They have their own approaches and idiosyncratic methods for investment decision making. This approach when applied to machine learning and quantitative trading does not work. Researchers will fall into the trap of either a false positive with an overfit backtest, or the factor based approach which is a crowded strategy, but has low sharpe ratio and support in the research community.</description>
+Failure of Sysphus Paradigm Discretionary PMS operate in siloed systems. Collaboration is difficult for these professionals. They have their own approaches and idiosyncratic methods for investment decision making. This approach when applied to machine learning and quantitative trading does not work.</description>
     </item>
     
     <item>
