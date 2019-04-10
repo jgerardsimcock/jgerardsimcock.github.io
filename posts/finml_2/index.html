@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Financial Data Structures | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 10, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Financial Data Structures</h1>
+  <div class="content">
+    
+
+<p>Notes from Chapter 2: <a href="https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos-ebook-dp-B079KLDW21/dp/B079KLDW21/ref=mt_kindle?_encoding=UTF8&amp;me=&amp;qid=1554866240">Advances in Financial Machine Learning</a></p>
+
+<h4 id="motivation">Motivation</h4>
+
+<p>Using someone else&rsquo;s dataset means you will likely discover what is already known by other people. Ideally, you want to start with raw, unstructured data and process it to make it most informative to you.</p>
+
+<h4 id="four-types-of-financial-data">Four Types of Financial Data</h4>
+
+<h5 id="fundamental-data">Fundamental Data</h5>
+
+<ul>
+<li>Accounting data that is reported quarterly</li>
+<li>Information that is found in regulatory findings and business analytics</li>
+<li>You must confirm when data was released so that analysis uses information only after it was publicly available</li>
+<li>Backfilling data means assigning data a value even if the actual value was unknown at time</li>
+<li>Reinstating data means to amend previously issues data values</li>
+<li>Low frequency and extremely regularized. Unlikely there is any exploitable information in the data</li>
+</ul>
+
+<h5 id="market-data">Market Data</h5>
+
+<ul>
+<li>All trading activity that takes place in an exchange or trading venue</li>
+<li>Ideally data vendor provides unstructured raw data feed
+
+<ul>
+<li>FIX messages that allow you to reconstruct trading book</li>
+<li>Full collection of Bids Wanted in Competition</li>
+<li>Market participants leave a trail of trading behaviour</li>
+<li>Trade weighted average price (TWAP) algos leave a trace that HFT guys try to front-run</li>
+<li>Human GUI traders trade in round numbers, from this you can estimate human/machine market participant ratios</li>
+<li>FIX data non-trivial to process and abundant,10TB/day</li>
+</ul></li>
+</ul>
+
+<h5 id="analytics">Analytics</h5>
+
+<ul>
+<li>Derivative data, based on some original source or a collection of other analytics</li>
+<li>Signal has been extracted for you</li>
+<li>Methodology is opaque and the price is high</li>
+<li>Importantly, others will have access to this data</li>
+</ul>
+
+<h5 id="alternative-data">Alternative Data</h5>
+
+<ul>
+<li>Primary raw, unfiltered information</li>
+<li>Data produced by humans: social media, web searches)</li>
+<li>Data produced by business processes: transactions, corporate data, government data</li>
+<li>Data produced by sensors: satellites, GPS, CCTV</li>
+<li>Cost and privacy are the main challenges with alt-data</li>
+<li>A data set may be useful it is annoying to process</li>
+</ul>
+
+<h4 id="bars">Bars</h4>
+
+<ul>
+<li>Create information driven bars, DO NOT USE STANDARD TIME BARS</li>
+</ul>
+
+<h5 id="standard-bars">Standard Bars</h5>
+
+<ul>
+<li>Transform observations that arrive at irregulare frequency (inhomogenous series) into homogenous series derived from regular sampling</li>
+</ul>
+
+<h5 id="time-bars">Time Bars</h5>
+
+<ul>
+<li>obtained by sampling at fixed time intervals</li>
+<li>Volume Weighted Average Price</li>
+<li>Time stamp</li>
+<li>Open Price</li>
+<li>Close Price</li>
+<li>High Price</li>
+<li>Low Price</li>
+<li>Volume Traded</li>
+<li>AVOID because markets do not process information at constant time intervals</li>
+<li>Time bars oversample information during low-activity periods and under-sample during high-activity periods</li>
+<li>Time-sampled series exhibit poor statistical properties
+
+<ul>
+<li>serial correlation</li>
+<li>Heteroskedasticiy</li>
+<li>non-normality of returns</li>
+</ul></li>
+<li>GARCH Models deal with heteroskedasticity</li>
+</ul>
+
+<h5 id="tick-bars">Tick Bars</h5>
+
+<ul>
+<li>Sample variables after a pre-defined number of transactions takes places, 1000 ticks</li>
+<li>Sampling is synchronized with a proxy for information arrival</li>
+<li>Price changes over fixed number of transactions may have gaussian distribution</li>
+<li>Price changes over fixed time interval may follow stable Paretian distribution with infinite variance</li>
+<li>Sampling at fixed transactions creates IID Normal return distributions</li>
+<li>Because so many assumptions in finance are based on observations drawn from IID Gaussian process</li>
+<li>Inference can only be drawn on an invariant variable</li>
+<li>Tick bars are more invariant than time bars</li>
+</ul>
+
+<h5 id="volume-bars">Volume Bars</h5>
+
+<ul>
+<li>Order fragmentation introduces arbitrariness into the number of ticks</li>
+<li>Lot size is not reflected in the tick a lot of 10 is one order and 10 orders of lot one is 10 orders</li>
+<li>Matching engine protocols can split one fill into multiple artificial fills</li>
+<li>Volume bars sample once a pre-defined volume of amount of a security are transacted regardless of the number of ticks</li>
+<li>Sampling returns by volume achieve better statistical properties</li>
+</ul>
+
+<h5 id="dollar-bars">Dollar Bars</h5>
+
+<ul>
+<li>Sample every time a pre-defined market value is reached</li>
+<li># of shares traded is a function of the value of the shares exchanged</li>
+<li>If you are witnessing large price fluctuations, dollar bar is a better estimate</li>
+<li># of outstanding shares changes throughout the life of a security</li>
+<li>Dollar bars are robust in the face of buybacks and share splits</li>
+<li>You may event want to adjust the bar size over time as the amount of free float changes</li>
+</ul>
+
+<h4 id="information-driven-bars">Information Driven Bars</h4>
+
+<ul>
+<li>Synchronizing sampling with the arrival of informed traders, we may be able to make decisions before prices return to &lsquo;equilibrium&rsquo;</li>
+<li>Monitor order flow imbalance</li>
+</ul>
+
+<h5 id="tick-imbalance-bars-tibs">Tick-Imbalance Bars (TIBs)</h5>
+
+<ul>
+<li>Sample bars whenever tick imbalance exceeds our expectation</li>
+<li>Determine the tick index such that the accumulation of ticks exceeds a certain threshold</li>
+<li>Produced more infrequently in the presence of informed traders</li>
+<li>TIBs are buckets of trades containing equal amounts of information</li>
+</ul>
+
+<h5 id="volume-dollar-imbalance-bars-vibs-dibs">Volume/Dollar Imbalance Bars (VIBs/DIBs)</h5>
+
+<ul>
+<li>Sample bars whenever vollume or dollar values diverge from our expectations</li>
+</ul>
+
+<h5 id="tick-run-bars">Tick Run Bars</h5>
+
+<ul>
+<li>Sweep the order book</li>
+<li>Iceberg Trading</li>
+<li>Parent trade into children trade</li>
+<li>Monitor the sequence of buys in overall volume and sample when sequence diverges from expectations</li>
+</ul>
+
+<h5 id="volume-dollar-run-bars">Volume/Dollar Run Bars</h5>
+
+<ul>
+<li>Sample whenever volume or dollar amount exceed our expectations</li>
+</ul>
+
+<h4 id="the-etf-trick-for-multi-product-series">The ETF Trick for Multi-product Series</h4>
+
+<ul>
+<li>Produce a time series of a multi-produce series as if it were a single security</li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+

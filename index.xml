@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Tue, 09 Apr 2019 18:21:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2019 11:12:16 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Financial Data Structures</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_2/</link>
+      <pubDate>Wed, 10 Apr 2019 11:12:16 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_2/</guid>
+      <description>Notes from Chapter 2: Advances in Financial Machine Learning
+Motivation Using someone else&amp;rsquo;s dataset means you will likely discover what is already known by other people. Ideally, you want to start with raw, unstructured data and process it to make it most informative to you.
+Four Types of Financial Data Fundamental Data  Accounting data that is reported quarterly Information that is found in regulatory findings and business analytics You must confirm when data was released so that analysis uses information only after it was publicly available Backfilling data means assigning data a value even if the actual value was unknown at time Reinstating data means to amend previously issues data values Low frequency and extremely regularized.</description>
+    </item>
     
     <item>
       <title>Chapter 1: Advances in Financial Machine Learning</title>
