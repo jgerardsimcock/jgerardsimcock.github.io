@@ -240,6 +240,19 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <li>Produce a time series of a multi-produce series as if it were a single security</li>
 </ul>
 
+<h4 id="event-based-sampling">Event Based Sampling</h4>
+
+<p>PMs take bet after some event like a structural break, extracted signal, or microstructural phenomena. These events could be vol spikes, shifts in regimes, shifts away from long-run means,</p>
+
+<h5 id="cusum-filter">CUSUM Filter</h5>
+
+<ul>
+<li>Quality control method designed to detect a shift in mean value of a measured quantity away from some target value</li>
+<li>Presumes IID observations emerging from a stationary process</li>
+<li>Procedure recommends an action at a time where some level is greater than a threshold value</li>
+<li>Symmetric CUSUM filter samples a bar t if the index level is greater than threshold</li>
+</ul>
+
   </div>
 </div>
 <div class="container has-text-centered">
