@@ -238,6 +238,50 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 <ul>
 <li>Produce a time series of a multi-produce series as if it were a single security</li>
+<li>Suppose a strategy that trades a spread of futures</li>
+<li>Spread is characterized by a vector of weights that change through time</li>
+<li>Spread may converge even if prices do not change</li>
+<li>A model trading this series will believe that PnL can be attributed to weight induced convergence</li>
+<li>Spreads can aquire negative values because they are not a price</li>
+<li>Most models assume positive values</li>
+<li>Trading times are do not always align so the spread is not always tradeable at the last levels published and with zero latency risk</li>
+<li>By constructing a time series that represents the value of $1 invested in the spread you overcome these issues</li>
+<li>This series will be used to model, generate signal and trade, as if it were an ETF</li>
+
+<li><p>At every observed bar, the strategy needs to know</p>
+
+<ul>
+<li>Rebalance costs</li>
+<li>Bid-Ask Spread</li>
+<li>Volume Traded</li>
+</ul></li>
+
+<li><p>Non-linear transaction costs can be simulated with this approach</p></li>
+</ul>
+
+<h4 id="computing-hedging-weights-with-pca">Computing Hedging Weights with PCA</h4>
+
+<ul>
+<li>How to determine the weights vector for the portfolio of assets in the Multi-product series?</li>
+</ul>
+
+<h4 id="sampling-features">Sampling Features</h4>
+
+<ul>
+<li>Sample bars so as to produce features matrix with relevant training examples</li>
+<li>Structuring data reduces the amount of data used to fit an ML Algorithm</li>
+<li>This is known as downsampling</li>
+<li>Linspace sampling: sequential sampling at a constant step size
+
+<ul>
+<li>Simple but results will vary based on bar seed size</li>
+</ul></li>
+<li>Uniform Sampling: Random sampling using a uniform distribution
+
+<ul>
+<li>Draws bars across the entire set of bars</li>
+</ul></li>
+<li>Sampling many not contain the most relevant observations for prediction and information content</li>
 </ul>
 
 <h4 id="event-based-sampling">Event Based Sampling</h4>
