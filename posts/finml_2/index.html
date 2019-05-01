@@ -138,6 +138,7 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 <ul>
 <li>Transform observations that arrive at irregulare frequency (inhomogenous series) into homogenous series derived from regular sampling</li>
+<li>The difference with this is that instead of using accumulated time thresholds we define other event thresholds</li>
 </ul>
 
 <h5 id="time-bars">Time Bars</h5>
@@ -207,10 +208,16 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <h5 id="tick-imbalance-bars-tibs">Tick-Imbalance Bars (TIBs)</h5>
 
 <ul>
+<li>When tick index T exceeds expectation, sample</li>
+<li>Ticks in set of ticks, b sub t, all have value of 1 or -1</li>
 <li>Sample bars whenever tick imbalance exceeds our expectation</li>
 <li>Determine the tick index such that the accumulation of ticks exceeds a certain threshold</li>
-<li>Produced more infrequently in the presence of informed traders</li>
+<li>Tick Bars are produced more infrequently in the presence of informed traders</li>
+<li>There is an unexpected presence of trades which naturally will exceed any anticipated threshold</li>
 <li>TIBs are buckets of trades containing equal amounts of information</li>
+<li>Tick imbalance, T, at time t is the sum of signed ticks from b sub 0 to b sub t.</li>
+<li>When Theta T is more imbalanced than expected, low tick values will satisfy tick imabalance formula</li>
+<li></li>
 </ul>
 
 <h5 id="volume-dollar-imbalance-bars-vibs-dibs">Volume/Dollar Imbalance Bars (VIBs/DIBs)</h5>
@@ -281,7 +288,7 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <ul>
 <li>Draws bars across the entire set of bars</li>
 </ul></li>
-<li>Sampling many not contain the most relevant observations for prediction and information content</li>
+<li>Sampling may not contain the most relevant observations for prediction and information content</li>
 </ul>
 
 <h4 id="event-based-sampling">Event Based Sampling</h4>
@@ -295,7 +302,19 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <li>Presumes IID observations emerging from a stationary process</li>
 <li>Procedure recommends an action at a time where some level is greater than a threshold value</li>
 <li>Symmetric CUSUM filter samples a bar t if the index level is greater than threshold</li>
+<li>Many different events can be used for S_t.</li>
+<li>Run up and run down days can be computed using this technique</li>
+<li>The output of the CUSUM filter will be used to label events in the labeling exercise in Chapter 3</li>
 </ul>
+
+<p>Some thoughts and questions about the tick imbalance bars</p>
+
+<p>These are basically candlesticks whose start/end are determined by the arrival of new information into the market
+The threshold to determine &lsquo;new information&rsquo; is dynamic
+We can shift away from a time based start/end initialization and set up static thresholds to reniitialize an information bar
+This can be helpful. But what happens when we want to make the threshold value itself a function of the market dynamics
+Let&rsquo;s say we want to set the threshold to something like a moving average of the last 10 days of trade volume
+Any time we surpass that we create a new bar. This basically increases the number of bars/observations during volatilie periods</p>
 
   </div>
 </div>
