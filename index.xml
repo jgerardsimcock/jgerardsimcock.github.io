@@ -25,6 +25,16 @@ The Jupyter Notebook is an Interactive Development Environment used by data scie
     </item>
     
     <item>
+      <title>Labeling</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_3/</link>
+      <pubDate>Thu, 11 Apr 2019 14:15:13 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_3/</guid>
+      <description>Motivation In chapter 2 we produced a matrix of financial features from unstructured data. Unsupervised learning algos can learn pattern from feature matrix. Supervised learning, however, requires that each row of feature matrix must be labeled with a target label column Y.
+Fixed Time-Horizon method In finance, ML papers all used fixed time horizon method. However, time bars do not have good statistical properties. Labels are applied regardless of the state of volatility of returns.</description>
+    </item>
+    
+    <item>
       <title>Financial Data Structures</title>
       <link>https://jgerardsimcock.github.io/posts/finml_2/</link>
       <pubDate>Wed, 10 Apr 2019 11:12:16 +0800</pubDate>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Labeling | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 11, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Labeling</h1>
+  <div class="content">
+    
+
+<h4 id="motivation">Motivation</h4>
+
+<p>In chapter 2 we produced a matrix of financial features from unstructured data. Unsupervised learning algos can learn pattern from feature matrix. Supervised learning, however, requires that each row of feature matrix must be labeled with a target label column Y.</p>
+
+<h5 id="fixed-time-horizon-method">Fixed Time-Horizon method</h5>
+
+<p>In finance, ML papers all used fixed time horizon method. However, time bars do not have good statistical properties. Labels are applied regardless of the state of volatility of returns.</p>
+
+<h5 id="alternatives">Alternatives</h5>
+
+<ul>
+<li>label per varying threshold of volatility, estimated with rolling exponentially weighted standard deviation of returns</li>
+<li>Use volume or dollar bars since their returns are homoskedastic</li>
+<li>Many strategies are created that if implemented, profits would be stopped out by the exchange</li>
+</ul>
+
+<h5 id="computing-dynamic-thresholds">Computing Dynamic Thresholds</h5>
+
+<ul>
+<li>We want to set profit taking and stop-loss limits that are a function of risks involved in the bet</li>
+<li>With exponentially weighted vol measures we can constantly adjust our profit and loss to prevailing market regime</li>
+</ul>
+
+<h5 id="triple-barrier-method">Triple-Barrier Method</h5>
+
+<ul>
+<li>Two horizontal and one vertical barrier</li>
+<li>Horizontal Barriers are profit-taking and stop-loss levels</li>
+<li>Vertical barrier is time duration</li>
+<li>Two horizontal barriers shift dynamically through time based on volatlity</li>
+<li>Vertical barrier takes a number of bars that have lapsed since position initiation</li>
+<li>A three-index tuple is created:
+
+<ul>
+<li>if top barrier is touched first then value in index 0 is 1</li>
+<li>If bottom barrier is touched first then index 0 is -1</li>
+<li>If vertical barrier is touched then index 0 is sign of return or 0</li>
+</ul></li>
+</ul>
+
+<h5 id="learning-the-side-and-size">Learning the side and size</h5>
+
+<ul>
+<li>How to label examples so ML algorithm can learn side and size of bets</li>
+<li>We are interested in learning the side of a bet when we do not have a model to set the sign of a position</li>
+<li>Without a model to set the side, we cannot differentiate between stop-loss and profit-taking barriers</li>
+
+<li><p>Learning the side implies no horizontal barriers or symmetric horizontal barriers</p></li>
+
+<li><p>a <code>getEvents</code> function finds the time of the first barrier touch</p></li>
+</ul>
+
+<h5 id="meta-labeling">Meta-labeling</h5>
+
+<ul>
+<li>First build a model that achieves high recall even if precision is not high</li>
+<li>Correct for low precision by applying meta-labeling to the positives predicted by the primary model</li>
+<li>Beacasue primary model has identified the majority of positives, meta-labeling increases F1 by filtering out false positives</li>
+<li>F1 score is the harmonic mean between precision and recall</li>
+<li>Precision is ratio of true positive to false positive</li>
+<li>Recall is ratio of true positive to overall positives</li>
+<li>Secondary ML algorithm is to determine whether a positive from the primary model is true or false</li>
+<li>Its purpose to whether we should act or pass on the opportunity presented</li>
+<li>Meta-labeling adds some transparency to your ML model</li>
+<li>It reduces the overfit of your model</li>
+<li>Allows you to decouple side and size of bet models</li>
+<li>If you have a primary model for long markets and another primary model for short markets than you can use the secondary algorithm on each</li>
+<li>It is another layer of filtering that can be applied to any primary model</li>
+<li>Be accurate on small bets and inaccurate on large bets will ruin you. The secondary model will allow you to improve this critical component</li>
+</ul>
+
+<h4 id="quantamental-way">Quantamental Way</h4>
+
+<ul>
+<li>You can use meta-labeling on any primary model, including those of human intuition</li>
+<li>In such a case, it would help you evaluate when to pursue or dismiss a discretionary PM&rsquo;s call</li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
