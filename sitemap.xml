@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jgerardsimcock.github.io/posts/finml_4/</loc>
+    <lastmod>2019-05-01T15:07:14+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jgerardsimcock.github.io/posts/data_science_refresh/</loc>
     <lastmod>2019-04-23T09:39:25+08:00</lastmod>
   </url>
@@ -209,7 +214,7 @@
   
   <url>
     <loc>https://jgerardsimcock.github.io/</loc>
-    <lastmod>2019-04-23T09:39:25+08:00</lastmod>
+    <lastmod>2019-05-01T15:07:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -220,7 +225,7 @@
   
   <url>
     <loc>https://jgerardsimcock.github.io/posts/</loc>
-    <lastmod>2019-04-23T09:39:25+08:00</lastmod>
+    <lastmod>2019-05-01T15:07:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   

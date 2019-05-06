@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Tue, 23 Apr 2019 09:39:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2019 15:07:14 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sample Weights</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_4/</link>
+      <pubDate>Wed, 01 May 2019 15:07:14 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_4/</guid>
+      <description>Chapter 4: Sample Weights
+Sample Weights  Most financial time series literature and models assume IID processes Financial time series are NOT IID Overlapping outcomes for our labeling process will mean that our observations are also not IID We have overlapping outcomes when one period&amp;rsquo;s label and returns coincide with another intervals For a given time point t we may have several labels running concurrently. We need a some function to compute how many labels we have running per time step Uniqueness of label for each feature  Bagging Classifiers and Uniqueness  Assuming IID observations leads to oversampling In-bag observations will become redundant to each other and similar to out of bag observations Redundancy of draws makes the bootstram inefficient For RF, all trees in the forest will be similar copies of overfit decision tree Out of bag samples will be similar to in-bag samples but so out of bag accuracy will be overestimated You can put an upper limit on the number of random samples so as to reduce the chance of oversampling  Sequential Bootstrap  Resample sequentially until K distinct original samples appear What are we sampling here?</description>
+    </item>
     
     <item>
       <title>Data Science Refresh</title>

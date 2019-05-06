@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Sample Weights | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">May 1, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Sample Weights</h1>
+  <div class="content">
+    
+
+<p>Chapter 4: Sample Weights</p>
+
+<h3 id="sample-weights">Sample Weights</h3>
+
+<ul>
+<li>Most financial time series literature and models assume IID processes</li>
+<li>Financial time series are NOT IID</li>
+<li>Overlapping outcomes for our labeling process will mean that our observations are also not IID</li>
+<li>We have overlapping outcomes when one period&rsquo;s label and returns coincide with another intervals</li>
+<li>For a given time point t we may have several labels running concurrently.</li>
+<li>We need a some function to compute how many labels we have running per time step</li>
+<li>Uniqueness of label for each feature</li>
+</ul>
+
+<h3 id="bagging-classifiers-and-uniqueness">Bagging Classifiers and Uniqueness</h3>
+
+<ul>
+<li>Assuming IID observations leads to oversampling</li>
+<li>In-bag observations will become redundant to each other and similar to out of bag observations</li>
+<li>Redundancy of draws makes the bootstram inefficient</li>
+<li>For RF, all trees in the forest will be similar copies of overfit decision tree</li>
+<li>Out of bag samples will be similar to in-bag samples but so out of bag accuracy will be overestimated</li>
+<li>You can put an upper limit on the number of random samples so as to reduce the chance of oversampling</li>
+</ul>
+
+<h3 id="sequential-bootstrap">Sequential Bootstrap</h3>
+
+<ul>
+<li>Resample sequentially until K distinct original samples appear</li>
+<li>What are we sampling here?</li>
+<li>Let&rsquo;s call it some kind of gestalt. There is a pattern that leads to a return.</li>
+<li>We know the pattern charactertistics and the return</li>
+<li>So our y&rsquo;s are our returns</li>
+<li>Our observations are our patterns</li>
+<li>Maybe each of the observations has as features different bar characteristics, volumue bars, tick bars, time bars</li>
+<li>We have a bunch of these little snippets</li>
+<li>We want to weight observations by absolute return that can be attributed to it</li>
+<li>When labels are a function of the return&rsquo;s sign {-1, 1}  or meta-labeling {0,1} sample weights can be defined in terms of attributed returns over the events lifespan</li>
+</ul>
+
+<h3 id="time-decay">Time Decay</h3>
+
+<ul>
+<li>As adaptive systems, markets evolve</li>
+<li>older examples will be less relevant than new ones</li>
+<li>Sample weights for older observations should be lower than newer observations</li>
+<li>We need a decay function that tells us how to reduce the weights on certain observations</li>
+<li>We can have weights never decay, weights that decay but stay positive and weights that decay to zero</li>
+</ul>
+
+<h3 id="class-weights">Class weights</h3>
+
+<ul>
+<li>For rare or underrepresented classes of events we want to increase our samples from this type of event</li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
