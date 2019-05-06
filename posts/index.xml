@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Wed, 01 May 2019 15:07:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2019 10:49:14 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fractionally Differentiated Features</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_5/</link>
+      <pubDate>Mon, 06 May 2019 10:49:14 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_5/</guid>
+      <description>Motivation  Low signal to noise in financial time series due to arbitrage Standard stationary transformations like integer differentiation further reduce signal by removing memory Price series have memory because every value is dependent upon a long history of previous values Integer differentiated series, like returns, have a memory cut-off History is disregarded after a certain time window Once memory has been removed, sophisticated techniques to retrieve signal leads to false positives  Stationarity vs Memory Dilemma  Non-stationarity is a time series with an unstable mean In order to perform inferential analysis, researchers need invariant processes Changes in yields, returns on log prices or changes in volatility are invariant These transformations make the data series stationary while removing memory For signal processing, we rarely want to remove all the memory since the memory is the basis for the predictive model Equilibrium models need memory to determine how far price has drifted long-run expected value What is mimimum amount of differentiation that makes a time series stationary while preserving as much memory as possible?</description>
+    </item>
     
     <item>
       <title>Sample Weights</title>

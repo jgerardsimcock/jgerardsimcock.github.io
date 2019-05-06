@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Fractionally Differentiated Features | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">May 6, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Fractionally Differentiated Features</h1>
+  <div class="content">
+    
+
+<h3 id="motivation">Motivation</h3>
+
+<ul>
+<li>Low signal to noise in financial time series due to arbitrage</li>
+<li>Standard stationary transformations like integer differentiation further reduce signal by removing memory</li>
+<li>Price series have memory because every value is dependent upon a long history of previous values</li>
+<li>Integer differentiated series, like returns, have a memory cut-off</li>
+<li>History is disregarded after a certain time window</li>
+<li>Once memory has been removed, sophisticated techniques to retrieve signal leads to false positives</li>
+</ul>
+
+<h3 id="stationarity-vs-memory-dilemma">Stationarity vs Memory Dilemma</h3>
+
+<ul>
+<li>Non-stationarity is a time series with an unstable mean</li>
+<li>In order to perform inferential analysis, researchers need invariant processes</li>
+<li>Changes in yields, returns on log prices or changes in volatility are invariant</li>
+<li>These transformations make the data series stationary while removing memory</li>
+<li>For signal processing, we rarely want to remove all the memory since the memory is the basis for the predictive model</li>
+<li>Equilibrium models need memory to determine how far price has drifted long-run expected value</li>
+<li><em>What is mimimum amount of differentiation that makes a time series stationary while preserving as much memory as possible?</em></li>
+<li>We want to generalize the notion of <em>stationary series where not all memory is erased</em></li>
+<li>Cointegration methods allow us to model series with memory</li>
+<li>There is a range of values between 0 and 1 we can use to differentiate</li>
+<li>Supervised learning algorithms require stationary observations</li>
+<li>Stationarity does not imply predictive power</li>
+<li>Stationarity is a necessary but insufficient condition for a good ML algorithm</li>
+</ul>
+
+<h3 id="literature-review-of-financial-time-series">Literature review of financial time-series</h3>
+
+<ul>
+<li>All financial time-series literature is based on premise of making non-stationary series stationary through integer differentiation</li>
+<li>Why is integer 1 differentiation optimal</li>
+<li>Is over differentiation one reason the literature is so biased towards Efficient Markets Hypothesis</li>
+</ul>
+
+<h3 id="expanding-window-fractional-differentiation">Expanding Window Fractional Differentiation</h3>
+
+<ul>
+<li>Initial data points in a series will have different memory than later points in the series</li>
+<li>We can adjust the way in which memory is preserved or lost in the series</li>
+<li>Negative drift is caused by negative weights that are added to initial observations as the window is expanded</li>
+<li>We can solve the negative drift that occurs from the expanding window by fixing our window length</li>
+</ul>
+
+<h3 id="fixed-window-with-fractional-differentiation">Fixed window with Fractional Differentiation</h3>
+
+<ul>
+<li>We drop weights after a set number of steps</li>
+<li>Same vector of weights will be used across the entire series</li>
+<li>While the series is stationary, it is not gaussian.</li>
+<li>We have excess skew and kurtosis</li>
+</ul>
+
+<h3 id="stationarity-with-maximum-memory-preservation">Stationarity with Maximum memory preservation</h3>
+
+<ul>
+<li>We can find a minimum coefficient that preserves memory while achieving stationarity</li>
+<li>We then submit the series to an ADF test to ensure stationarity</li>
+<li>In all cases of most liquid instruments, stationarity is achieved with coefficient of less than 0.6<br /></li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
