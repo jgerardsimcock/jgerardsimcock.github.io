@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Mon, 06 May 2019 17:27:01 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 May 2019 10:49:53 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cross Validation in Finance</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_7/</link>
+      <pubDate>Tue, 07 May 2019 10:49:53 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_7/</guid>
+      <description>Cross validation is used to determine the generalization error of an ML algorithm. It is designed to prevent overfitting.
+Cross-Validation in ML ML algorithms attempt to learn the structure of the data (training data) so that we can infer the same structure on unseen data (test data). Training and testing on the same dataset will yield very high levels of prediction precision. This is what file-lossy algos do. They can summarize data with extreme fidelity, yet have zero forecasting power.</description>
+    </item>
     
     <item>
       <title>Ensemble Methods</title>

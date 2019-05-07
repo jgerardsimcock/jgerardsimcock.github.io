@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Cross Validation in Finance | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">May 7, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Cross Validation in Finance</h1>
+  <div class="content">
+    
+
+<p>Cross validation is used to determine the generalization error of an ML algorithm. It is designed to prevent overfitting.</p>
+
+<h3 id="cross-validation-in-ml">Cross-Validation in ML</h3>
+
+<p>ML algorithms attempt to learn the structure of the data (training data) so that we can infer the same structure on unseen data (test data). Training and testing on the same dataset will yield very high levels of prediction precision. This is what file-lossy algos do. They can summarize data with extreme fidelity, yet have zero forecasting power.</p>
+
+<p>K-fold cross validation is a popular technique where the algorithm splits the data into k-folds. The algo will exclude one fold as the testing set, using the other folds as a training set.</p>
+
+<h3 id="k-fold-in-finance">K-Fold in Finance</h3>
+
+<p>K-Fold will fail in finance mostly because the data on which the algo was trained are not drawn from IID processes. Testing sets are also used multiple times leading to multiple testing and selection bias.</p>
+
+<p>Because we frequently have overlapping observations we will get leakage in between our observations and predictions. You can drop from training set any observation where the outcome Y_i of the observation i is used to determine outcome Y_j and observation j in the training set. i and j should not span overlapping periods.</p>
+
+<p>Avoid overfitting the classifier by early stoppage of base estimators. Bag classifiers to increase the diversity of estimators.</p>
+
+<h3 id="purged-k-fold-cross-validation">Purged K-Fold Cross-Validation</h3>
+
+<p>You can purge all observations from training set whose labels overlapped in time with those labels included in the test set. Due to serial correlation, purge all observations from the training set that immediately follow observations from the testing set.</p>
+
+<p>When leakage occurs, performance improves as k (the number of splits) increases toward T, the number of bars. The larger number of testing splits, the larger number of overlapping observations in the training set.</p>
+
+<p>We need to purge and embargo overlapping training observation whenever we produce a train/test split</p>
+
+<p><em>[SKLEARN BUGS]</em>(<a href="https://github.com/scikit-learn/scikit-learn/issues/6231">https://github.com/scikit-learn/scikit-learn/issues/6231</a>)</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
