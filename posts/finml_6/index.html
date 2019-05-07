@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Ensemble Methods | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">May 6, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Ensemble Methods</h1>
+  <div class="content">
+    
+
+<p>Chapter 6 is the beginning of the modeling chapters.</p>
+
+<p>The goal of ensemble methods is to combine the predictions from several base estimators built with a given learning algorithm in order to improve generalizability/robustness over a single estimator. Ensemble methods help reduce bias and/or variance. They cannot reduce noise.</p>
+
+<h3 id="averaging-ensemble-methods">Averaging Ensemble Methods</h3>
+
+<p>Build single estimators independently then average their predictions. On average, the combined estimator is better than the single estimator because the variance is reduced. Bagging and Random forests are examples of this class of ensemble method.</p>
+
+<h3 id="boosting-methods">Boosting Methods</h3>
+
+<p>Base estimators are built sequentially and one tries to reduce the bias of the combined estimator. Combinations of weak models generates a robust model.</p>
+
+<h3 id="common-sources-of-errors-in-ml">Common sources of errors in ML</h3>
+
+<h4 id="bias">Bias</h4>
+
+<p>Caused by unrealistic assumptions. High bias algorithm does not recognize important relations between features and outcomes and underfits the model. Low bias draws too many relationships between features and outcomes and overfits fits the model.</p>
+
+<h4 id="variance">Variance</h4>
+
+<p>Caused by sensitivity to small changes in the training set. Overfit models have high variance. The model has learned the training set and any changes to the training set will generate different performance results. Algo has mistaken noise with signal.</p>
+
+<h4 id="noise">Noise</h4>
+
+<p>There is an irreducible error which cannot be explained by any model.</p>
+
+<h3 id="bootstrap-aggregation">Bootstrap Aggregation</h3>
+
+<p>Bagging will increase the accuracy of any single classifier and should be used. It does this by reducing variance. The variance of the bagged prediction is a function of the number of bagged estimators, the average variance of a single estimators prediction, and average correlation among their predictions. The purpose of sequential bootstrapping is to produce as independent a set of training data as possible to reduce the correlation among the predictions. Bagging will most likelye reduce variance but will not as likely reduce bias.</p>
+
+<h3 id="random-forests">Random Forests</h3>
+
+<p>Decision trees produce ensembles of decision trees to reduce variance. Similar to bootstrap aggregation in that it trains estimators of individual subsets of the data. Random Forests have a second layer of randomness besides the bootstrapping process. When subsetting at each node split, a random subsample without replacement of attributes will be evaluated in order to decorrelate the estimators.</p>
+
+<p>Random Forests will reduce variance and can also give some insight into feature importance. They can also provide out of bag accuracy estimates.</p>
+
+<p>Random Forests will not necessarily exhibit lower bias than their individual trees. If we have large number of non-IID subsamples, then the model will be overfit because the subsamples will be redundant copies of each other.</p>
+
+<p>Suggestions on how to address overfit problem in Random Forests</p>
+
+<ul>
+<li>Set param <code>max_features</code> to a lower value as a way of forcing discrepancy between the trees</li>
+<li>Early stopping: Set regularization param <code>min_weight_fraction_leaf</code> to a sufficiently large value such that out-of-bag accuracy converges to out-of-sample accuracy</li>
+<li>Use a <code>BaggingClassifier</code> on <code>DecisionTreeClassifier</code> where max samples is set to average uniqueness between samples</li>
+<li>Use a <code>BaggingClassifier</code> on <code>RandomForestClassifier</code> where max samples is set to average uniqueness between samples</li>
+<li>Modify RF class to replace standard bootstrapping with sequential bootstrapping</li>
+<li>Perform PCA and train forest on PCA feature space in order to reduce the number of levels</li>
+<li><code>class_weight='balanced_subsample'</code> will help prevent trees from misclassifiying minority classes</li>
+</ul>
+
+<h3 id="boosting">Boosting</h3>
+
+<p>Algorithm logic</p>
+
+<ul>
+<li>Generate training set by random sampling with replacement, according to some sample weights</li>
+<li>Fit one estimator using that training set</li>
+<li>Test the accuracy of the estimator and if it gets more than 50% accuracy (on binary classificatio) keep the estimator, otherwise discard</li>
+<li>Give more weight to misclassified observations and less weight to correctly classified observations</li>
+<li>Repeat previous steps until N estimators have been produced</li>
+<li>Produce an ensemble forecast that is the simple average of the N estimators you&rsquo;ve kept</li>
+</ul>
+
+<h3 id="boosting-vs-bagging-in-finance">Boosting vs Bagging in Finance</h3>
+
+<p>Boosting has the following advantages over bagging</p>
+
+<ul>
+<li>Individual classifiers are fit sequentially</li>
+<li>poor-performing classifiers are dismissed</li>
+<li>Observations are weighted differently each iteration</li>
+<li>Ensemble forecast is weighted average of individual learners</li>
+
+<li><p>Boosting reduces both variance and bias</p></li>
+
+<li><p>Reducing the bias increases the chance of overfitting which is a critically consequential problem in finance</p></li>
+
+<li><p>Computationally, bagging can be parrellelized while boosting is a sequential routine</p></li>
+</ul>
+
+<h3 id="bagging-for-scalability">Bagging for scalability</h3>
+
+<p>As data increases, convergence is a time consuming problem with many ML algorithms. You are not certain if you have achieved a global or a local optimimum. For certain ML algorithms with convergence challenges, bagging will allow you to train lots of estimators in parallel and reduce compute time</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+

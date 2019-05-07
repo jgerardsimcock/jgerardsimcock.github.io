@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Mon, 06 May 2019 10:49:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2019 17:27:01 +0800</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ensemble Methods</title>
+      <link>https://jgerardsimcock.github.io/posts/finml_6/</link>
+      <pubDate>Mon, 06 May 2019 17:27:01 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/finml_6/</guid>
+      <description>Chapter 6 is the beginning of the modeling chapters.
+The goal of ensemble methods is to combine the predictions from several base estimators built with a given learning algorithm in order to improve generalizability/robustness over a single estimator. Ensemble methods help reduce bias and/or variance. They cannot reduce noise.
+Averaging Ensemble Methods Build single estimators independently then average their predictions. On average, the combined estimator is better than the single estimator because the variance is reduced.</description>
+    </item>
     
     <item>
       <title>Fractionally Differentiated Features</title>
