@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Notes on Parallelism and Concurrency | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">May 30, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Notes on Parallelism and Concurrency</h1>
+  <div class="content">
+    
+
+<p>I&rsquo;ve been on a number of interviews in the past two months. I&rsquo;ve got another coming up and in order to prepare I want to review some additional python, programming and computer architecture topics.</p>
+
+<p>Concurrency in Computer science is when different parts or units of a program/algortihm can be executed out-of-order or partially out of order. The opposite of concurrent execution is serial execution where each part or unit must be executed in order. Concurrency enables parallel execution. Each programming language handles this problem uniquely.</p>
+
+<p>Concurrency must be distinguished between parallelism. Parallelism refers mostly to simultaneous execution enabled through hardware. If you have only a single threaded process, you will not achieve parallelism since the thread can only handle one process at a time.</p>
+
+<p>In Python parallelism is a challenge. There are multi-threading and multi-processing libraries in python that should enable parallelism. However, due to the Global Interpreter Lock prevents more than one thread from running at a time.</p>
+
+<h4 id="multithreading-thread-based-parallelism">Multithreading: Thread-based Parallelism</h4>
+
+<p>Threading is a package that provides an API to create and manage threads. Threads are non-deterministic and scheduling is performed by the OS. Non-deterministic means that if the program crashes, it will be close to impossible to reproduce the errors that created the crash. The OS&rsquo;s thread scheduling algorithm will determine which thread will run next and when it will be pre-empted.</p>
+
+<p>CPython is the main implementation of Python and it achieves multi-threading a Mutex called the Global Interpreter Lock. The GIL prevents multiple threads from accessing the same object simultaneously. This prevents other processes from changing the underlying object that another process is interacting with. You would not want someone to update, delete an object that are working on.</p>
+
+<p>Threads will share the same memory. We create a thread pool with a predefined number of threads.</p>
+
+<h5 id="thread-specific-features-of-python3">Thread-specific features of python3</h5>
+
+<p>Thread-local data: after initializing a thread, you can assign unique data values to attributes of the thread instance.  Each instance will have different values. From the python3 documentation.</p>
+
+<pre><code>mydata = threading.local()
+mydata.x = 1
+</code></pre>
+
+<p><em>Lock Objects</em>: Synchronization primitive with <code>acquire</code> and <code>release</code> methods</p>
+
+<p><em>RLock Objects</em>: Synchronization primitive that allows a thread to <code>acquire</code> and <code>release</code> the same thread multiple times</p>
+
+<p><em>Condition Objects</em>: Each condition is associated with a lock</p>
+
+<p><em>Semaphore Objects</em>: Synchronization primitive that keeps track of the number of acquire and release calls made</p>
+
+<p><em>Events</em>: Mechanism that enables threads to communicate between each other</p>
+
+<p><em>Timer objects</em>: Represents an object that should be run after a specific amount of time</p>
+
+<p><em>Barrier object</em>: Synchronization primitive that delays an event until a set number of threads have called their <code>wait</code> method at which point they are all released</p>
+
+<h4 id="io-bound-vs-cpu-bound-tasks">IO Bound vs CPU bound tasks</h4>
+
+<p>For IO bound tasks when most of the time is waiting for the network response multithreading can be faster since the processor can switch between threads whenever one is ready for work. If some threads are waiting for the network to respond, the processor will check with other threads and move them along their task.</p>
+
+<p>For CPU bound tasks, we can achieve true parallelism with the multiprocessing module.</p>
+
+<h4 id="what-is-a-mutex">What is a Mutex?</h4>
+
+<p>Mutex is a concept and tool in concurrent programming that prevents race conditions. Mutex stands for mutual exclusion. It requires that one thread of execution never enters its critical section at the same time that another concurrent thread of execution enters its own critical section.</p>
+
+<h4 id="multi-processing-based-parallelism">Multi-processing based parallelism</h4>
+
+<p>In Python, we can use the multiprocessing library and its Pool class to achieve parallelism. Each sub process in the pool has its own separate memory space. When we map a routine to a sub-processes and memory space we are mapping the entire routine. For complex routines this can require a large amount of memory overhead.</p>
+
+<h5 id="multiprocessing-communication">Multiprocessing Communication</h5>
+
+<p>The multiprocessing module allows you to achieve process-based parallelism. Communication between processes is done via Queues and Pipes. Queues are thread and process safe and work just like the <code>queue.Queue</code> class. The <code>Pipe</code> class has a child and parent connection and both have a <code>send</code> and <code>recv</code> method. The communication may become corrupted if multiple processes try to read or write to the same end of pipe at the same time. Objects submitted to the multiprocessing classes like Pool and Process must be pickleable/serializable.</p>
+
+<h5 id="multiprocessing-synchronization">Multiprocessing synchronization</h5>
+
+<p>All the synchronization primitives available in the threading module are also available in the multiprocessing library. These are Locks, Rlocks, Semaphores, Barrier objects, Timer objects.</p>
+
+<h5 id="sharing-state">Sharing State</h5>
+
+<p>Multiprocessing creates a unique memory allocation for each subprocess. However, if the processes need to share some data, there are some ways to accomplish this. The <code>Value</code> and <code>Array</code> allow you to share data between processes. You must identify the data type of the data you are sharing. These <code>Value</code> and <code>Array</code> objects are thread and process safe.</p>
+
+<p>The <code>Manager</code> class controls a server process which holds python objects and allows ther processes to manipulate those objects. The manager supports all synchronization primitives and shared memory objects. A single manager can be shared by multiple processes on computers over a network. It is slower than shared memory.</p>
+
+<h4 id="worker-pools">Worker Pools</h4>
+
+<p>The <code>Pool</code> class represents a pool of worker processes. You can offload tasks to the pool in a number of ways. You can map functions to the workers in the pool. You can apply functions asynchronously, you can imap and starmap functions. Starmap an be used for more complex argument structures.</p>
+
+<h4 id="concurrent-futures-for-parallel-task-execution"><code>concurrent.futures</code> for parallel task execution</h4>
+
+<p><code>concurrent.futures</code> provides a high-level interface or asynchonously executing callables. You can use it with threads or processes. If processes, ensure that the object can be pickleable. An abstract <code>Executor</code> class is subclassed to <code>ThreadPoolExecutor</code> and <code>ProcessPoolExecutor</code>. The <code>ThreadPoolExecutor</code> uses a pool of threads to execute calls asynchronously. The <code>ProcessPoolExecutor</code> uses a <code>multiprocessing</code> module and sidesteps the <a href="https://docs.python.org/3/glossary.html#term-global-interpreter-lock">Global Interpreter Lock</a>.</p>
+
+<h5 id="future-objects"><code>Future</code> objects</h5>
+
+<p><code>Future</code> objects are the encapsulation of an asynchronous call. Instances are created when <code>Executor.submit()</code> is invoked</p>
+
+<h4 id="dask-distributed-for-parallel-computation"><code>dask.distributed</code> for parallel computation</h4>
+
+<p>My experience with parallel computing is mostly using <a href="https://distributed.dask.org"><code>distributed</code></a>. This library wraps much of the <code>concurrent.futures</code> features with some exceptions. <code>distributed</code> has many advantages in that it lets you run large batch jobs on big data. It includes dynamic task scheduling, ad hoc computation, direct communication between workers.</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+

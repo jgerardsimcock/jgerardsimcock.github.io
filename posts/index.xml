@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Tue, 07 May 2019 10:49:53 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 16:20:07 -0400</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Parallelism and Concurrency</title>
+      <link>https://jgerardsimcock.github.io/posts/parallel_concurrency/</link>
+      <pubDate>Thu, 30 May 2019 16:20:07 -0400</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/parallel_concurrency/</guid>
+      <description>I&amp;rsquo;ve been on a number of interviews in the past two months. I&amp;rsquo;ve got another coming up and in order to prepare I want to review some additional python, programming and computer architecture topics.
+Concurrency in Computer science is when different parts or units of a program/algortihm can be executed out-of-order or partially out of order. The opposite of concurrent execution is serial execution where each part or unit must be executed in order.</description>
+    </item>
     
     <item>
       <title>Cross Validation in Finance</title>
