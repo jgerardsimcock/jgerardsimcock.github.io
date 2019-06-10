@@ -63,6 +63,17 @@ Sample Weights  Most financial time series literature and models assume IID proc
     </item>
     
     <item>
+      <title>Data Structures and Algorithms: Stacks and Queues</title>
+      <link>https://jgerardsimcock.github.io/posts/data_structures_algos_1/</link>
+      <pubDate>Fri, 26 Apr 2019 08:07:46 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/data_structures_algos_1/</guid>
+      <description>Some review I did for a bunch of interviews with trading firms
+Linear Data Structures Data structures like Stacks, Queues, Dequeues and Lists are called linear because the items are ordered depending on how they are added and removed. When an item is added, it will stay in the same location until it is removed. Linear Structures have two ends: a left and a right.
+Stack Stacks insertion and removal logic is Last-in-First-out (LIFO).</description>
+    </item>
+    
+    <item>
       <title>Data Science Refresh</title>
       <link>https://jgerardsimcock.github.io/posts/data_science_refresh/</link>
       <pubDate>Tue, 23 Apr 2019 09:39:25 +0800</pubDate>

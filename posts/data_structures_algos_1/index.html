@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Data Structures and Algorithms: Stacks and Queues | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 26, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Data Structures and Algorithms: Stacks and Queues</h1>
+  <div class="content">
+    
+
+<p>Some review I did for a bunch of interviews with trading firms</p>
+
+<h4 id="linear-data-structures">Linear Data Structures</h4>
+
+<p>Data structures like Stacks, Queues, Dequeues and Lists are called linear because the items are ordered depending on how they are added and removed. When an item is added, it will stay in the same location until it is removed. Linear Structures have two ends: a left and a right.</p>
+
+<h5 id="stack">Stack</h5>
+
+<p>Stacks insertion and removal logic is Last-in-First-out (LIFO). Imagine a stack of books. You add and remove the books from the top of the stack. Browser histories are versions of stacks. The browser keeps a running tab of the sites you visited and if you hit back it goes back in the stack to get the previous page. Methods for the Stack Abstract Data Type would be something like <code>isEmpty</code>, <code>push</code>, <code>pop</code>, <code>size</code>, and something like <code>show</code> to give a sense of contents.</p>
+
+<pre><code>class Stack:
+
+	def __init__(self):
+		self.items = []
+
+	def isEmpty(self):
+		return len(self.items) == 0
+
+	def push(self, item):
+		self.items.append(item)
+
+	def pop(self):
+		return self.items.pop()
+
+	def size(self):
+		return len(self.items)
+
+	def show(self):
+		return self.items[len(self.items)[-1]]
+</code></pre>
+
+<h5 id="using-a-stack-to-convert-from-decimal-base10-to-binary-base2">Using a stack to convert from decimal (base10) to binary (base2)</h5>
+
+<p>233 and 11101001 are the same value. We just represent them differently given the base we are operating in. To get from decimal to binary we can use a Stack to track the computation.</p>
+
+<pre><code>def dec_to_bin(decimal):
+	remaining = Stack()
+
+	while decimal &gt; 0:
+		rem = decimal % 2
+		remaining.push(rem)
+		decimal = decimal // 2
+
+	binary_string = ''
+
+	while not remaining.isEmpty():
+		binary_string += str(remaining.pop())
+
+	return binary_string
+
+</code></pre>
+
+<p>And if we wanted to convert from decimal to any base representation we would modify the above like this:</p>
+
+<pre><code>def dec_to_base(decimal, base):
+
+	digits = &quot;0123456789ABCDEF&quot;
+
+	remaining = Stack()
+
+	while decimal &gt; 0:
+		rem = decimal % base
+		remaining.push(rem)
+		decimal = decimal // base
+
+	base_string = ''
+
+	while not remaining.isEmpty():
+		base_string += digits[remaining.pop())]
+
+	return base_string
+</code></pre>
+
+<h4 id="queues">Queues</h4>
+
+<p>Queues operate according to first-in-first-out (FIFO) logic. They are similar to waiting in line at the store. The first in line is the first person who gets service. With this data structure we also have <code>isEmpty</code>, <code>size</code>, <code>enqueue</code> and <code>dequeue</code> operations.</p>
+
+<pre><code>class Queue:
+	
+	def __init__(self):
+		self.items = []
+
+	def isEmpty(self):
+		return self.items == []
+
+	def enqueue(self, item):
+		self.items.insert(0, item)
+
+	def dequeue(self):
+		self.items.pop()
+
+	def size(self):
+		return len(self.items)
+
+</code></pre>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
