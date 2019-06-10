@@ -63,6 +63,18 @@ Sample Weights  Most financial time series literature and models assume IID proc
     </item>
     
     <item>
+      <title>Data Science Refresh</title>
+      <link>https://jgerardsimcock.github.io/posts/data_science_refresh/</link>
+      <pubDate>Tue, 23 Apr 2019 09:39:25 +0800</pubDate>
+      
+      <guid>https://jgerardsimcock.github.io/posts/data_science_refresh/</guid>
+      <description>Personal notes as I refresh some data science basics
+Programming and Python Basics Notes from here
+Jupyter Notebooks
+The Jupyter Notebook is an Interactive Development Environment used by data scientsits and scientific programmers to explore and visualize datasets, prototype statistical and machine learning models as well as present complex scientific topics in the form of computational essays. You can use a variety of computer languages with Jupyter Notebooks but the most popular is Python.</description>
+    </item>
+    
+    <item>
       <title>Labeling</title>
       <link>https://jgerardsimcock.github.io/posts/finml_3/</link>
       <pubDate>Thu, 11 Apr 2019 14:15:13 +0800</pubDate>

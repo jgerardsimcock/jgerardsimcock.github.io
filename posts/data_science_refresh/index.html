@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Data Science Refresh | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">April 23, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Data Science Refresh</h1>
+  <div class="content">
+    
+
+<p>Personal notes as I refresh some data science basics</p>
+
+<h2 id="programming-and-python-basics">Programming and Python Basics</h2>
+
+<p>Notes from <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">here</a></p>
+
+<p>Jupyter Notebooks</p>
+
+<p>The Jupyter Notebook is an Interactive Development Environment used by data scientsits and scientific programmers to explore and visualize datasets, prototype statistical and machine learning models as well as present complex scientific topics in the form of computational essays. You can use a variety of computer languages with Jupyter Notebooks but the most popular is Python. The Jupyter Notebook operates in your browser at a port on your local host. There are many point and click features in the interface as well as magic and hot keys to navigate and execute operations. The Jupyter Notebook is a single-user interface. However, through JupyterHub, you can host an entire data science research team that can share data resources.</p>
+
+<p>Python has become the defacto language for data science and machine learning. While python is known to be slow, the numerical computing libraries of numpy and scipy have enabled the rapid uptake of python for scientific computing. Additionally, Pandas, a data analysis library designed for tabular and time series data, has also encouraged the shift to python for machine learning and other data analysis tasks.</p>
+
+<h5 id="data-structures">Data Structures</h5>
+
+<p>What is a data structure. In programming land, my instinctual response, is some container to represent some piece of information. Some types of information are best represented with specific containers.</p>
+
+<h5 id="lists">Lists</h5>
+
+<p>A list is a sequence of strings, integers, floats or any other data type. These items are ordered. That is, the order in which they are added or created is preserved. You can mix integers and strings as well as integers and floats. Importantly lists are mutable meaning you can modify them by adding and removing items. Some methods for lists are below.</p>
+
+<p><code>['this', 'is', 'a', 'list']</code></p>
+
+<p><code>['this', 1, 'is', 'also', 'a' 'list', 2]</code></p>
+
+<p><code>['pi', '=', 3.14]</code></p>
+
+<p>What can you do with a list?</p>
+
+<p><code>append</code>: add an item to end of list</p>
+
+<p><code>extend</code>: Add a sequence of items to the end of a list</p>
+
+<p><code>insert</code>: add an item at a specific location in a list</p>
+
+<p><code>remove</code>: If an item is in a list, you can remove it</p>
+
+<p><code>pop</code>: You can remove an item from an index in a list. The default behavior is the last item</p>
+
+<p><code>clear</code>: remove all items</p>
+
+<p><code>count</code>: count all items in list</p>
+
+<h5 id="list-indexing-and-slicing">List indexing and slicing</h5>
+
+<p>In addition to these formal methods. You can use <code>[:]</code> brackets to index specific locations within a list. By indicating a starting and stopping position, you can slice parts of the list. <code>[3:5]</code> Would return items in position <code>3</code> and <code>4</code>. You can also indicate a step like this <code>[::3]</code> which would yield every third value. If we have a list <code>lc = [1, 4, 9, 16, 25, 36, 49, 64, 81]</code> and we do something like <code>lc[::3]</code> we get <code>[1,16,49]</code>.</p>
+
+<h5 id="lists-as-stacks">Lists as Stacks</h5>
+
+<p>A stack is a type of data strucure in computer science that operates according to a &lsquo;last-in first-out&rsquo; logic</p>
+
+<p><code>append</code> and <code>pop</code> would allow you to use a list as a stack as <code>append</code> adds to the last position in the list and <code>pop</code> will remove the last position.</p>
+
+<h5 id="lists-as-queues">Lists as Queues</h5>
+
+<p>There is a type of list called a <code>deque</code> and it operates as a &lsquo;first-in first-out&rsquo; logic.</p>
+
+<p>You have to initialize the list with the <code>queue</code> instance to access its these methods</p>
+
+<h4 id="list-comprehensions">List Comprehensions</h4>
+
+<p>In Python, lists can be used for looping instead of creating iteration control flow you can contain that logic within a list</p>
+
+<p>a list comprehension like:
+<code>[x**2 for x in range(1,10)]</code></p>
+
+<p>would yield this:
+<code>1, 4, 9, 16, 25, 36, 49, 64, 81</code></p>
+
+<h5 id="tuples">Tuples</h5>
+
+<p>Tuples are similar to lists with the great exception that they are immutable, unmodifiable. You cannot add or remove items from these data structures. Tuples, like lists, are ordered data structures</p>
+
+<h5 id="sets">Sets</h5>
+
+<p>Unordered collection with no duplicate elements. You initialize them with the <code>set()</code> method. These data structures allow for all logical set operations.</p>
+
+<h5 id="dictionaries">Dictionaries</h5>
+
+<p>This data structure is an unordered structure with a mapping from a key to a value component. The main use of dictionaries is getting the value from keys.</p>
+
+<h4 id="data-operations-conditionals-and-iterations">Data Operations, conditionals and iterations</h4>
+
+<p>Comparison operators <code>in</code> an <code>not in</code> check for inclusion or exclusion within a sequence. <code>is</code> and <code>is not</code> check to make sure that one object is really the same as another object.</p>
+
+<p><code>while</code> loops perform some routine as long as the statement in the while loop is true.</p>
+
+<p><code>if</code>, <code>elif</code> and <code>else</code> statements are used to evaluate conditions and execute some kind of decision given some condition. There may be zero or many <code>elif</code> statements and the <code>else</code> statement is optional since in the final analysis the only remaining option would be the else scenario.</p>
+
+<p><code>for</code> statements are used to iterate over sequences. If you need to modify the sequence over which you are iterating, it is best to make a copy and modify the copy.</p>
+
+<p>If you need to iterate over the items while keeping track of their index in the sequence, it is best to use enumerate. If you need to iterate over two sequences simultaneously, you can zip them together and operate on each sub component as you move through the sequence.</p>
+
+<p><code>break</code>, <code>continue</code>, <code>else</code>. <code>break</code> will exit the loop all together. <code>continue</code> will proceed to the next iteration in the loop.</p>
+
+<h4 id="mathematical-comparison-and-logical-operations">Mathematical, comparison and logical operations</h4>
+
+<p>Python handles all mathematical operations like a calculator. Strings can also handle some kinds of mathematical operations like <code>+</code> and <code>==</code> for concatenation and equality checking. <code>&gt;, &lt;, == ,&lt;=, &gt;=</code> are all valid mathematical comparison operators.</p>
+
+<p>Boolean operators like <code>and</code> <code>or</code> are used for complex comparisons between different objects.  <code>in</code> and <code>not in</code> can be used for inclusion and exclusion checking into immutable objects.</p>
+
+<h5 id="handling-exceptions">Handling Exceptions</h5>
+
+<p>It is good practice to expect that errors may occur and consider how to handle them ahead of time. This is especially helpful when you are debugging but is good practice in general if there are specific types of problems that you think may shut your program down. An error, will shut down your program, unless you handle it appropriately. Using <code>try...except</code> allows you to catch exceptions and do something with them.</p>
+
+<p>Numpy, Pandas and MPL</p>
+
+<p>See notebook [here](</p>
+
+<p>)</p>
+
+<p>Statistics</p>
+
+<p>Standard Deviation, sigma</p>
+
+<p>Variance, sigma square</p>
+
+<p>Mean, mu</p>
+
+<p>Median</p>
+
+<p>Skew</p>
+
+<p>Kurtosis</p>
+
+<p>correlation</p>
+
+<p>Pearson</p>
+
+<p>Covariance</p>
+
+<p>normal vs other distributions</p>
+
+<p>The basic idea with statistics is that if we build a dataset of a bunch of observations of some phenomena and we visualize the data we&rsquo;ll see a pattern. We can parameterize our datasets with a few key parameters: mean/median/mode, standard deviation, skew, kurtosis. With these parameters we should be able to reproduce the basic character of our dataset.</p>
+
+<h4 id="central-tendancy">Central Tendancy</h4>
+
+<p>The data will group around some central values. The central tendency within the visualized data can be characterized by the a few ideas, the median, the mean and the mode. Depending on the type of distribution there will be a better/best representation of the central tendency. If your data has lots of outliers, than the mean is not the best representation of the central tendency. A median estimate may be better since it is splits the data in the middle. If we are working with categorical data, the mode is the better representation of central tendency. If our date is ordinal, like some kind of incrementing or decrementing sequence the median is better. If our distribution is skewed and not centered around a single point, then we want to also use median for this as well. Mean best represents data that is centered with as few outliers as possible.</p>
+
+<h4 id="variance-and-standard-deviation">Variance and Standard Deviation</h4>
+
+<p>This is a complement to the central tendency in that this parameter will tell you the extent to which your data has outliers. A normal distribution will have few outliers. Other distributions like a pareto distribution will be defined by its outliers. Such distributions, because the mean is unstable, the variance is actually infinite. For a stable, normal distribution, the mean and variance are finite. To compute the variance we take each observation and subtract the mean from it and square it. We then sum the differences and divide by the number of observations. To get the standard deviation we take the square root of the variance.</p>
+
+<h4 id="kurtosis">Kurtosis</h4>
+
+<p>Kurtosis describes the quality of the tailedness of the distribution. Higher kutosis is the result of infrequent, extreme deviations from the mean.</p>
+
+<h4 id="skew">Skew</h4>
+
+<p>Skew describes how centered the data is. You can have left and right skewed data. For distributions with alot of skew, the median is a better metric of central tendency.</p>
+
+<h4 id="correlation-and-covariance">Correlation and Covariance</h4>
+
+<p>Covariance is the measure of the joint variability of two random variables. It is used to measure the linear relationship between the two variables. The sign of the variable describes whether they are negatively or positively related. Computing the covariance is done by taking the sum of the product of the difference between each variables observation and its mean.</p>
+
+<p>Correlation Coefficient tells us the degre to which two variables are linearly related. We can obtain the correlation coefficient by dividing covariance by the product of the standard deviations of the two random variables.</p>
+
+<p>Multivariate Calculus</p>
+
+<p>Stochastic gradient descent, convex optimization problems and</p>
+
+<p>Linear Algebra</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
