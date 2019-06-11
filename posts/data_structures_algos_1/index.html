@@ -169,6 +169,122 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 </code></pre>
 
+<h5 id="printing-queues">Printing queues</h5>
+
+<p>For shared resources, that need to be distributed in some kind of asynchronous manner, a queue can represent the model for allocating the resource. In the example below, a printing queue is simulated. You could also imagine Uber or Lyft using something like this to match drivers with passengers.</p>
+
+<p>This simulation requires a few objects like a <code>Printer</code> and a <code>Task</code> and the <code>PrintQueue</code> itself. The printer has certain attributes that need to be accounted for: it&rsquo;s state, whether it&rsquo;s busy or not, some internal measurement of time. It also needs to be able to initiate printing routines.</p>
+
+<p>Let&rsquo;s first represent the simulation of printing tasks and then build out the objects that will be represented in the printing of tasks.</p>
+
+<pre><code>from queue import Queue
+
+def simulate_print_tasks(num_seconds, pages_per_minute):
+	'''
+	Params
+	------
+	num_seconds: int representing the duration of the simulation
+	pages_per_minute: int representing the max rate of the printer
+	'''
+
+	#initialize a printer with a given print speed
+	shared_printer = Printer(pages_per_minute)
+	printQueue = Queue()
+	wait_times = []
+
+
+	#move through the simulation incrementally
+	for now in range(num_seconds):
+
+		#at every second of the simulation, two things can be happening, potentially simultaneously
+			#tasks are being generated and queued
+			#tasks are being printed
+
+		#if somebody initiates a print task
+		if maybe_print_task():
+
+			#initialize a Task object
+			task = Task(now)
+
+			#add task object to the Queue
+			printQueue.enqueue(task)
+
+		if not shared_printer.busy():
+
+			#remove a task from queue
+			next_task = printQueue.dequeue()
+
+			#append the waiting time for the task
+			wait_times.append(next_task.waitTime(now))
+
+			#start new task
+			shared_printer.start_next_task(next_task)
+
+
+		shared_printer.tick()
+
+	average_wait_time = sum(wait_times)//len(wait_times)
+	print(average_wait_time, printQueue.size())
+
+
+#create an event generator
+def maybe_new_task():
+	
+	num = random.randrange(1,181)
+	if num == 180:
+		return True
+
+	else: return False
+
+
+#run the simulation 10 times with parameters for 5 minutes with 5 ppm rate
+for i in range(10):
+	
+	simulation(3000, 5)
+
+
+class Printer:
+	
+	def __init__(self, ppm):
+		self.pagerate = ppm
+		self.current_task = None
+		self.time_remaining = 0
+
+	def tick(self):
+		#increment time forward
+		if self.current_tasl != None:
+			self.time_remaining -= 1
+			if self.time_remaining &lt;= 0:
+				self.current_task = None
+
+	def busy(self):
+
+		if self.current_task != None:
+			return True
+		else: return False
+
+	def start_next_task(self, new_task):
+		self.current_task = new_task
+
+		#the length of a task is the number of pages times the pages per minute
+		self.time_remaining = new_task.get_pages() * 60/self.pagerate
+
+class Task:
+
+	def __init__(self, time):
+		self.timestamp = time
+		self.pages = random.randrange(1, 21)
+
+	def get_timestamp(self):
+		return self.timestamp
+
+	def get_pages(self):
+		return self.pages
+
+	def wait_time(self, current_time):
+		return current_time - self.timestamp
+</code></pre>
+
   </div>
 </div>
 <div class="container has-text-centered">
