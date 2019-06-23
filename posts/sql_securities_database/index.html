@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Securities database | As it is</title>
+
+<link rel="stylesheet" href="https://jgerardsimcock.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://jgerardsimcock.github.io//js/highlight.js"></script>
+
+
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://jgerardsimcock.github.io/"><h1 class="title is-3">As it is</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://github.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.linkedin.com/in/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </span>
+                </a>
+              
+                <a href="https://twitter.com/jgerardsimcock">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.instagram.com/_justin_gerard/">
+                  <span class="icon">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              
+                <a href="https://www.goodreads.com/user/show/14378346-justin-simcock">
+                  <span class="icon">
+                    <i class="fab fa-goodreads"></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <h2 class="subtitle is-6">June 19, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Securities database</h1>
+  <div class="content">
+    
+
+<p>WHat would it mean if I started my own trading operation?</p>
+
+<p>I started to think about this question from a CTO&rsquo;s perspective. I wanted to understand the types of systems I would need in order to execute this successfully. Having completed <a href="https://pyalgo.tpq.io/">this</a> Algorithmic trading program I had a sense of what kind of systems I may need.</p>
+
+<h4 id="securities-database">Securities Database</h4>
+
+<p>The first part I would need to build this business is a securities database that would collect the time series data in real-time and then later be used as the raw material for research. I honestly, don&rsquo;t really have any strong opions myself and so I started researching on Stack Overflow as well as watching videos, reading blog posts. It is clear there are many options and opinions on how to construct a time-series database. Generally, there are SQL, NoSQL solutions. You could even just use a basic file system to organize your data. We did something similar to this at Rhodium for our climate data.</p>
+
+<p>You also need to find a place to get the data. There are many sources for data. I am mostly interested in forex data so I started by downloading 4 hour candles for currency pairs, indexes and other securities from the fxcm api. I used this SDK to assist in the downloading. Actually you can get streaming minute candles from fxcm but it only goes back two weeks or so.</p>
+
+<p>There is also a great resource <a href="https://www.histdata.com">here</a>. You can download actual FOREX, index and commodity tick data going back to the 2000s.</p>
+
+<p>As far as where to put all this, I decided to go with Arctic, which is based on MongoDB. I was a little uncertain at first because everyone uses SQL and I figured it was the best and only responsible solution. I was very surprised to see that a very large systematic fund was using a NoSQL store for tick data. I actually set-up a SQL store for some equities data and I really did not like. It felt extremely rigid and unable to adapt. So far I&rsquo;ve only been loading data into Arctic. I&rsquo;ve note been doing any large-scale, concurrent reads from it for modeling or backtesting. I inserted 10 years of data for about 70 instruments in serial and it took about 3 minutes. I did not think that was too bad. That time includes the time it took to ping the server, wait for the response, download and insert the data. So about 3-4 seconds for each security for the duration fo the period. Not bad.</p>
+
+<p>The next steps are to try and implement this on the cloud on AWS to see how it performs.</p>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/jgerardsimcock">Simcock</a> 2018</p>
+  </div>
+</section>
+
+
