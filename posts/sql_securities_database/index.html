@@ -87,7 +87,26 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 <p>As far as where to put all this, I decided to go with <a href="https://github.com/manahl/arctic">Arctic</a>, which is based on MongoDB. I was a little uncertain at first because everyone uses SQL and I figured it was the best and only responsible solution. I was very surprised to see that a very large systematic fund such as MAN/AHL was using a NoSQL store for tick data. I actually set-up a SQL store for some equities data and I really did not like. It felt extremely rigid and unable to adapt. So far I&rsquo;ve only been loading data into Arctic. I&rsquo;ve note been doing any large-scale, concurrent reads from it for modeling or backtesting. I inserted 10 years of data for about 70 instruments in serial and it took about 3 minutes. I did not think that was too bad. That time includes the time it took to ping the server, wait for the response, download and insert the data. So about 3-4 seconds for each security for the duration fo the period. Not bad.</p>
 
-<p>The next steps are to try and implement this on the cloud on AWS to see how it performs.</p>
+<p>The next steps for this project are the following:</p>
+
+<ul>
+<li>Create a scheduled job to ping the <a href="https://github.com/fxcm/RestAPI">FXCM api</a> at set intervals</li>
+<li>Do some checks to make sure the data is valid with the right dimensions etc and time deltas</li>
+<li>Update each of the security records for the date in the Arctic ChunkStore</li>
+<li>Do some tests to make sure that the new data to be updated is not overwriting old data</li>
+<li>Actually, evaluate VersionStore to control the possible overriding of the data.</li>
+<li>Evaluate AirFlow to manage this process</li>
+</ul>
+
+<h5 id="steps-for-getting-it-to-the-cloud">Steps for getting it to the cloud</h5>
+
+<ul>
+<li>Set up a mongodb instance on AWS</li>
+<li>Install Arctic</li>
+<li>Migrate data from current Arctic store to cloudstore</li>
+<li>Set up Airflow on Cloud instance</li>
+<li>Run and test data ingest pipeline on AWS</li>
+</ul>
 
   </div>
 </div>
