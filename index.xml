@@ -18,7 +18,7 @@
       <pubDate>Wed, 19 Jun 2019 13:33:03 -0400</pubDate>
       
       <guid>https://jgerardsimcock.github.io/posts/sql_securities_database/</guid>
-      <description>WHat would it mean if I started my own trading operation?
+      <description>What would it mean if I started my own trading operation?
 I started to think about this question from a CTO&amp;rsquo;s perspective. I wanted to understand the types of systems I would need in order to execute this successfully. Having completed this Algorithmic trading program I had a sense of what kind of systems I may need.
 Securities Database The first part I would need to build this business is a securities database that would collect the time series data in real-time and then later be used as the raw material for research.</description>
     </item>
