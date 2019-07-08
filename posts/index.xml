@@ -7,20 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/jgerardsimcock&#34;&gt;Simcock&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Wed, 19 Jun 2019 13:33:03 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2019 14:57:59 -0400</lastBuildDate>
     
 	<atom:link href="https://jgerardsimcock.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Securities database</title>
-      <link>https://jgerardsimcock.github.io/posts/sql_securities_database/</link>
-      <pubDate>Wed, 19 Jun 2019 13:33:03 -0400</pubDate>
+      <title>Grief sorrow and promises</title>
+      <link>https://jgerardsimcock.github.io/posts/grief_sorrow_promises/</link>
+      <pubDate>Tue, 02 Jul 2019 14:57:59 -0400</pubDate>
       
-      <guid>https://jgerardsimcock.github.io/posts/sql_securities_database/</guid>
-      <description>What would it mean if I started my own trading operation?
-I started to think about this question from a CTO&amp;rsquo;s perspective. I wanted to understand the types of systems I would need in order to execute this successfully. Having completed this Algorithmic trading program I had a sense of what kind of systems I may need.
-Securities Database The first part I would need to build this business is a securities database that would collect the time series data in real-time and then later be used as the raw material for research.</description>
+      <guid>https://jgerardsimcock.github.io/posts/grief_sorrow_promises/</guid>
+      <description>I&amp;rsquo;ve been back in NYC for about 6 weeks now. Things have not gone as planned. In many ways, I could not ask for more from the world. It forced a state of consciousness on me. I realized ex poste what kind of fantasy state I had created and that I was occupying. That state existed without sufficient contact with reality. In the past few weeks, I witnessed my states of consciousness fluctuate between confidence and its absence.</description>
     </item>
     
     <item>
